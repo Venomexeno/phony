@@ -10,6 +10,15 @@ class Device extends DeviceInterface {
     required this.description,
   });
 
+  factory Device.fromJson(Map<String, dynamic> json) {
+    return Device(
+      id: json['id'],
+      name: json['name'],
+      image: json['img'],
+      description: json['description'],
+    );
+  }
+
   @override
   List<Object> get props => [
     ...super.props,
