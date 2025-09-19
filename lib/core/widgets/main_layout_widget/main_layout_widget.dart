@@ -2,8 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-
-import '../../../dependencies/app_theme/get_app_theme/get_app_theme_cubit.dart';
+import '../../../dependencies/app_theme_cubit/app_theme_cubit.dart';
 import '../../../features/home/view/screens/home_screen.dart';
 import '../../models/main_layout_item.dart';
 import '../../style/app_colors.dart';

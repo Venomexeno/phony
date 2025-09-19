@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../dependencies/app_theme/get_app_theme/get_app_theme_cubit.dart';
+import '../../dependencies/app_theme_cubit/app_theme_cubit.dart';
 import 'app_colors.dart';
 
 abstract class AppTextStyles {
@@ -185,7 +185,7 @@ abstract class AppTextStyles {
   static Color _getTextColor({
     Color light = AppColors.light,
     Color dark = AppColors.color1F2937,
-  }) => GetAppThemeCubit.isDark ? dark : light;
+  }) => AppThemeCubit.isDark ? dark : light;
 }
 
 TextStyle _textStyle({

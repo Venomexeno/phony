@@ -1,9 +1,9 @@
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
-import '../../../core/di/cubit/custom_cubit.dart';
+import '../../core/di/cubit/custom_cubit.dart';
 
-class GetAppThemeCubit extends CustomCubit<bool> with HydratedMixin {
-  GetAppThemeCubit() : super(false) {
+class AppThemeCubit extends CustomCubit<bool> with HydratedMixin {
+  AppThemeCubit() : super(false) {
     hydrate();
   }
 

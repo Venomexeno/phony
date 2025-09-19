@@ -101,7 +101,7 @@ class _MainLayoutNavBarState extends State<_MainLayoutNavBar> with SingleTickerP
     );
   }
 
-  Color get bottomNavBarColor => GetAppThemeCubit.isDark ? AppColors.dark : AppColors.light;
+  Color get bottomNavBarColor => AppThemeCubit.isDark ? AppColors.dark : AppColors.light;
 
   EdgeInsets _padding(double dotSize) => EdgeInsets.only(top: 12 + dotSize, bottom: 12);
 }

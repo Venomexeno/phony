@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../dependencies/app_theme/get_app_theme/get_app_theme_cubit.dart';
+import '../../../dependencies/app_theme_cubit/app_theme_cubit.dart';
 import '../../models/main_layout_item.dart';
 import '../../style/app_colors.dart';
 import '../../style/app_text_styles.dart';
@@ -43,7 +43,7 @@ class NavBarItemWidget extends StatelessWidget {
     );
   }
 
-  Color get _iconColor => GetAppThemeCubit.isDark
+  Color get _iconColor => AppThemeCubit.isDark
       ? isSelected
             ? AppColors.light
             : AppColors.color6B7280
