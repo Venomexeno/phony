@@ -32,7 +32,7 @@ abstract class AppTextStyles {
   static TextStyle get bold16 => _textStyle(
     fontSize: 16,
     fontWeight: FontWeight.w700,
-    color: AppColors.color1F2937,
+    color: _getTextColor(),
   );
 
   static TextStyle get bold14 => _textStyle(

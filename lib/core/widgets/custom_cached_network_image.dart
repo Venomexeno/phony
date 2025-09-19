@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'loading_widget.dart';
+import '../style/app_colors.dart';
+import 'shimmer_widget.dart';
 
 class CustomCachedNetworkImage extends StatelessWidget {
   const CustomCachedNetworkImage({
@@ -28,7 +29,13 @@ class CustomCachedNetworkImage extends StatelessWidget {
         width: width,
         height: height,
         placeholder: (context, url) {
-          return LoadingWidget();
+          return ShimmerWidget(
+            width: width,
+            height: height,
+            borderRadius: borderRadius,
+            baseColor: AppColors.grey700,
+            highlightColor: AppColors.grey200,
+          );
         },
         errorWidget: (context, url, error) {
           return Icon(

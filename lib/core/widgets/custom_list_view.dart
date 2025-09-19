@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'exception_widget.dart';
+
 class CustomListView<T> extends StatelessWidget {
   const CustomListView({
     super.key,
@@ -21,11 +23,11 @@ class CustomListView<T> extends StatelessWidget {
   final bool shrinkWrap;
   final Axis scrollDirection;
   final bool reverse;
-  
+
   @override
   Widget build(BuildContext context) {
     if (items.isEmpty) {
-      return const Center(child: Text('No items'));
+      return ExceptionWidget.emptyList(message: 'No items');
     }
     return ListView.separated(
       itemCount: items.length,

@@ -1,16 +1,19 @@
 part of 'main_layout_widget.dart';
 
 List<MainLayoutItem> get _mainLayoutItems => [
-  const MainLayoutItem(
+  MainLayoutItem(
     title: 'Home',
     icon: Icons.home_rounded,
-    screen: HomeScreen(),
+    screen: BlocProvider<GetHotDealsCubit>(
+      create: (context) => sl<GetHotDealsCubit>()..getHotDealDevices(),
+      child: HomeScreen(),
+    ),
   ),
 
   const MainLayoutItem(
     title: 'Compare',
     icon: Icons.compare_arrows_rounded,
-    screen: HomeScreen(),
+    screen: Placeholder(),
   ),
 
   const MainLayoutItem(
@@ -22,6 +25,6 @@ List<MainLayoutItem> get _mainLayoutItems => [
   const MainLayoutItem(
     title: 'Settings',
     icon: Icons.settings_rounded,
-    screen: HomeScreen(),
+    screen: Placeholder(),
   ),
 ];

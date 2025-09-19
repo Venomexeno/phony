@@ -1,10 +1,13 @@
 part of 'service_locator.dart';
 
 void _initAppHelpers() {
-  
   sl.registerLazySingleton<NetworkConnectionHelper>(
-    () => InternetConnectionCheckerHelper(
-      checker: InternetConnectionChecker.instance
-    )
+    () => InternetConnectionCheckerHelper(checker: InternetConnectionChecker.instance),
+  );
+
+  sl.registerLazySingleton<ApiHelper>(
+    () => DioHelper(
+      dio: Dio(),
+    ),
   );
 }

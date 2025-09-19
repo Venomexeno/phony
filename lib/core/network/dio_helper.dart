@@ -69,7 +69,7 @@ class DioHelper implements ApiHelper {
     Map<String, dynamic>? queries,
     Map<String, dynamic>? headers,
     dynamic body,
-    String? contentType,    
+    String? contentType,
   }) async {
     return _tryAndCatchBlock<T>(
       responseBuilder: () async => await dio.patch(

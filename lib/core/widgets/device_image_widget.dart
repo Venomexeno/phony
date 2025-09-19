@@ -8,17 +8,19 @@ class DeviceImageWidget extends StatelessWidget {
     required this.device,
     this.width = 75,
     this.height = 100,
+    this.borderRadius = const BorderRadius.all(Radius.circular(10)),
   });
 
   final Device device;
   final double width;
   final double height;
+  final BorderRadiusGeometry borderRadius;
 
   @override
   Widget build(BuildContext context) {
     return CustomCachedNetworkImage(
       fit: BoxFit.cover,
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: borderRadius,
       imageUrl: device.image,
       width: width,
       height: height,
