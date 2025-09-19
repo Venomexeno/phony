@@ -183,8 +183,8 @@ abstract class AppTextStyles {
   );
 
   static Color _getTextColor({
-    Color light = AppColors.light,
-    Color dark = AppColors.color1F2937,
+    Color light = AppColors.color1F2937,
+    Color dark = AppColors.light,
   }) => AppThemeCubit.isDark ? dark : light;
 }
 

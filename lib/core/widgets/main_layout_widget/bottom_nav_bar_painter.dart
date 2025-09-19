@@ -16,10 +16,10 @@ class BottomNavBarPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final Path path = Path();
 
-    const double cornerRadius = 10; // عرض الحواف العلوية
-    const double notchWidth = 25; // عرض الـ notch (أعرض من قبل)
-    const double notchDepth = 20; // عمق الـ notch (أقل من قبل لجعله أقصر)
-    const double smoothRadius = 8; // نصف قطر المنحنيات الانتقالية
+    double cornerRadius = 10; // عرض الحواف العلوية
+    double notchWidth = 25; // عرض الـ notch (أعرض من قبل)
+    double notchDepth = 20; // عمق الـ notch (أقل من قبل لجعله أقصر)
+    double smoothRadius = 8; // نصف قطر المنحنيات الانتقالية
 
     // نبدأ من أعلى اليسار مع منحنى بسيط
     path.moveTo(0, cornerRadius);
@@ -67,10 +67,10 @@ class BottomNavBarPainter extends CustomPainter {
     // نرسم shadow محدد
     final Paint shadowPaint = Paint()
       ..color = AppColors.grey.toOpacity(0.3)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.inner, 20);
+      ..maskFilter = MaskFilter.blur(BlurStyle.inner, 20);
 
     // نرسم الظل بإزاحة للأعلى
-    final Path shadowPath = path.shift(const Offset(0, -1));
+    final Path shadowPath = path.shift(Offset(0, -1));
     canvas.drawPath(shadowPath, shadowPaint);
 
     // نرسم الخلفية

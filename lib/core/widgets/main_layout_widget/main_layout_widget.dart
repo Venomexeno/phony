@@ -54,8 +54,10 @@ class _MainLayoutWidgetState extends State<MainLayoutWidget> {
         right: false,
         child: Scaffold(
           extendBody: true,
+          appBar: AppBar(
+            title: Text(_mainLayoutItems[index].title),
+          ),
           key: _scaffoldKey,
-
           bottomNavigationBar: _MainLayoutNavBar(state: this),
           body: _mainLayoutItems[index].screen,
         ),

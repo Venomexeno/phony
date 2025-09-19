@@ -21,12 +21,8 @@ class DetailedDevice extends Device {
       name: json['name'],
       image: json['img'],
       description: json['description'],
-      quickSpecs: (json['quickSpecs'] as List)
-          .map((spec) => DeviceQuickSpec.fromJson(spec))
-          .toList(),
-      detailedSpecs: (json['detailedSpecs'] as List)
-          .map((spec) => DeviceDetailedSpec.fromJson(spec))
-          .toList(),
+      quickSpecs: (json['quickSpecs'] as List).map((spec) => DeviceQuickSpec.fromJson(spec)).toList(),
+      detailedSpecs: (json['detailedSpecs'] as List).map((spec) => DeviceDetailedSpec.fromJson(spec)).toList(),
     );
   }
 

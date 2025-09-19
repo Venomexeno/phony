@@ -19,6 +19,15 @@ class Device extends DeviceInterface {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'img': image,
+      'description': description,
+    };
+  }
+
   @override
   List<Object> get props => [
     ...super.props,

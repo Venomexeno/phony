@@ -5,13 +5,11 @@ class MainLayoutItem extends Equatable {
   final String title;
   final IconData icon;
   final Widget screen;
-  final VoidCallback? onTap;
 
   const MainLayoutItem({
     required this.title,
     required this.icon,
     required this.screen,
-    this.onTap,
   });
 
   @override
@@ -19,6 +17,5 @@ class MainLayoutItem extends Equatable {
     title,
     icon,
     screen,
-    onTap,
   ];
 }

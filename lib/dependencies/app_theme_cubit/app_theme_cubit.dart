@@ -15,6 +15,10 @@ class AppThemeCubit extends CustomCubit<bool> with HydratedMixin {
 
   static bool get isDark => _isDark;
 
+  static bool getIsDark() {
+    return _isDark;
+  }
+
   @override
   bool? fromJson(Map<String, dynamic> json) {
     _isDark = json['isDark'] as bool? ?? false;

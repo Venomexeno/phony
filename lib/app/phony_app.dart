@@ -6,7 +6,10 @@ import '../core/di/service_locator.dart';
 import '../core/style/app_theme.dart';
 import '../core/widgets/main_layout_widget/main_layout_widget.dart';
 import '../dependencies/app_theme_cubit/app_theme_cubit.dart';
+import '../features/favorites/controller/favorites_cubit/favorites_cubit.dart';
 import 'environment_type.dart';
+
+final navigatorKey = GlobalKey<NavigatorState>();
 
 class PhonyApp extends StatelessWidget {
   const PhonyApp({
@@ -18,11 +21,19 @@ class PhonyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<AppThemeCubit>(
-      create: (context) => sl<AppThemeCubit>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AppThemeCubit>(
+          create: (context) => sl<AppThemeCubit>(),
+        ),
+        BlocProvider<FavoritesCubit>(
+          create: (context) => sl<FavoritesCubit>(),
+        ),
+      ],
       child: BlocBuilder<AppThemeCubit, bool>(
         builder: (context, isDark) {
           return MaterialApp(
+            navigatorKey: navigatorKey,
             debugShowCheckedModeBanner: false,
             theme: isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
             builder: _builder,
@@ -43,11 +54,11 @@ class PhonyApp extends StatelessWidget {
             width: ResponsiveValue<double>(
               context,
               conditionalValues: [
-                const Condition.between(start: 0, end: 450, value: 375),
-                const Condition.between(start: 450, end: 800, value: 500),
-                const Condition.between(start: 800, end: 1100, value: 600),
-                const Condition.between(start: 1100, end: 1400, value: 680),
-                const Condition.between(start: 1400, end: 9999, value: 900),
+                Condition.between(start: 0, end: 450, value: 375),
+                Condition.between(start: 450, end: 800, value: 500),
+                Condition.between(start: 800, end: 1100, value: 600),
+                Condition.between(start: 1100, end: 1400, value: 680),
+                Condition.between(start: 1400, end: 9999, value: 900),
               ],
             ).value,
             child: child!,
@@ -58,9 +69,9 @@ class PhonyApp extends StatelessWidget {
   }
 
   List<Breakpoint> get _breakpoints => [
-    const Breakpoint(start: 0, end: 450, name: MOBILE),
-    const Breakpoint(start: 451, end: 800, name: TABLET),
-    const Breakpoint(start: 801, end: 1920, name: DESKTOP),
-    const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
+    Breakpoint(start: 0, end: 450, name: MOBILE),
+    Breakpoint(start: 451, end: 800, name: TABLET),
+    Breakpoint(start: 801, end: 1920, name: DESKTOP),
+    Breakpoint(start: 1921, end: double.infinity, name: '4K'),
   ];
 }
