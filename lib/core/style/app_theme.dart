@@ -15,8 +15,11 @@ abstract class AppTheme {
     ),
     fontFamily: GoogleFonts.notoSans().fontFamily,
     appBarTheme: const AppBarTheme(
+      elevation: 0,
+      shadowColor: AppColors.transparent,
       backgroundColor: AppColors.light,
       foregroundColor: AppColors.color1F2937,
+      surfaceTintColor: AppColors.transparent,
       iconTheme: IconThemeData(
         color: AppColors.color1F2937,
       ),
@@ -34,8 +37,12 @@ abstract class AppTheme {
     ),
     fontFamily: GoogleFonts.notoSans().fontFamily,
     appBarTheme: const AppBarTheme(
+      elevation: 0,
+      shadowColor: AppColors.transparent,
       backgroundColor: AppColors.dark,
       foregroundColor: AppColors.light,
+      surfaceTintColor: AppColors.transparent,
+
       iconTheme: IconThemeData(
         color: AppColors.light,
       ),

@@ -19,7 +19,7 @@ class FavoriteDeviceInfoWidget extends StatelessWidget {
         Text(device.name, style: AppTextStyles.semiBold18),
         Text(
           device.description,
-          style: AppTextStyles.semiBold14.copyWith(color: AppColors.colora0aec0),
+          style: AppTextStyles.medium12.copyWith(color: AppColors.grey400),
         ),
       ],
     );

@@ -9,7 +9,7 @@ class FavoritesCubit extends CustomCubit<Set<Device>> with HydratedMixin {
   }
 
   void addFavorite(Device device) {
-    emit({...state, device});
+    emit({device,...state});
   }
 
   void removeFavorite(Device device) {

@@ -14,10 +14,16 @@ class FavoritesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomListView<Device>(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      padding: _padding,
       items: devices,
       itemBuilder: (context, index) => FavoriteItemWidget(device: devices[index]),
       separatorBuilder: (context, index) => SizedBox(height: 10),
     );
   }
+
+  EdgeInsetsGeometry get _padding => EdgeInsets.only(
+    left: 10,
+    right: 10,
+    bottom: 100,
+  );
 }
