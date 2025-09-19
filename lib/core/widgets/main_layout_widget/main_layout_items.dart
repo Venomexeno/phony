@@ -16,7 +16,7 @@ List<MainLayoutItem> get _mainLayoutItems => [
   const MainLayoutItem(
     title: 'Favorites',
     icon: Icons.favorite_rounded,
-    screen: HomeScreen(),
+    screen: FavoritesScreen(),
   ),
 
   const MainLayoutItem(

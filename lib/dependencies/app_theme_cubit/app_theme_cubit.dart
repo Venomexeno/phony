@@ -9,15 +9,12 @@ class AppThemeCubit extends CustomCubit<bool> with HydratedMixin {
 
   void toggleTheme() {
     emit(!state);
+    _isDark = state;
   }
 
   static late bool _isDark;
 
   static bool get isDark => _isDark;
-
-  static bool getIsDark() {
-    return _isDark;
-  }
 
   @override
   bool? fromJson(Map<String, dynamic> json) {
