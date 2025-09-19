@@ -20,8 +20,8 @@ List<MainLayoutItem> get _mainLayoutItems => [
   ),
 
   const MainLayoutItem(
-    title: 'Profile',
-    icon: Icons.person_rounded,
+    title: 'Settings',
+    icon: Icons.settings_rounded,
     screen: HomeScreen(),
   ),
 ];

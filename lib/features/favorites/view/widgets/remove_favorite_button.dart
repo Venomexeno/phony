@@ -20,7 +20,7 @@ class RemoveFavoriteButton extends StatelessWidget {
       },
       icon: Icon(
         Icons.delete,
-        color: AppColors.red,
+        color: AppColors.grey500,
       ),
     );
   }
