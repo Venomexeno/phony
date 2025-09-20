@@ -50,6 +50,7 @@ dependencies:
   shimmer: ^3.0.0
   lottie: ^3.3.2
   url_launcher: ^6.3.2
+  skeletonizer: ^2.1.0+1
 
     
 dev_dependencies:

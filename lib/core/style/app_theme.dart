@@ -11,6 +11,7 @@ abstract class AppTheme {
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.secondary,
         foregroundColor: AppColors.light,
+        elevation: 0,
       ),
     ),
     fontFamily: GoogleFonts.notoSans().fontFamily,
@@ -33,6 +34,7 @@ abstract class AppTheme {
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.secondary,
         foregroundColor: AppColors.light,
+        elevation: 0,
       ),
     ),
     fontFamily: GoogleFonts.notoSans().fontFamily,

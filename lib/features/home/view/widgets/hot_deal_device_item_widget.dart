@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/style/app_box_decorations.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/widgets/device_image_widget.dart';
@@ -17,11 +18,20 @@ class HotDealDeviceItemWidget extends StatelessWidget {
       decoration: _boxDecoration,
       child: Column(
         children: [
-          DeviceImageWidget(
-            device: hotDealDevice,
-            width: double.infinity,
-            height: 200,
-            borderRadius: _borderRadius,
+          Skeleton.replace(
+            replacement: Container(
+              width: double.infinity,
+              height: 200,
+              decoration: BoxDecoration(
+                borderRadius: _borderRadius,
+              ),
+            ),
+            child: DeviceImageWidget(
+              device: hotDealDevice,
+              width: double.infinity,
+              height: 200,
+              borderRadius: _borderRadius,
+            ),
           ),
           DealInfoWidget(hotDealDevice: hotDealDevice),
         ],

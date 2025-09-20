@@ -17,7 +17,9 @@ class HotDealsListView extends StatelessWidget {
       items: hotDealDevices,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemBuilder: (context, index) => HotDealDeviceItemWidget(hotDealDevice: hotDealDevices[index]),
+      itemBuilder: (context, index) {
+        return HotDealDeviceItemWidget(hotDealDevice: hotDealDevices[index]);
+      },
       separatorBuilder: (context, index) => const SizedBox(height: 8),
     );
   }

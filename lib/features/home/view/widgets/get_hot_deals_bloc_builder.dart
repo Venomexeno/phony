@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/skeletons/custom_skeletonizer.dart';
+import '../../../../core/skeletons/skeletons.dart';
 import '../../../../core/widgets/exception_widget.dart';
-import '../../../../core/widgets/loading_widget.dart';
 import '../../controllers/get_hot_deals_cubit/get_hot_deals_cubit.dart';
 import 'hot_deals_list_view.dart';
 
@@ -19,12 +20,14 @@ class GetHotDealsBlocBuilder extends StatelessWidget {
             message: state.message,
             onTryAgain: () => _onTryAgain(context),
           );
-        } else if (state is GetHotDealsSuccess) {
-          return HotDealsListView(
-            hotDealDevices: state.hotDealDevices,
-          );
         }
-        return LoadingWidget();
+
+        return CustomSkeletonizer(
+          enabled: state is GetHotDealsLoading,
+          child: HotDealsListView(
+            hotDealDevices: state is GetHotDealsSuccess ? state.hotDealDevices : getSkeletonData(),
+          ),
+        );
       },
     );
   }
