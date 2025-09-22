@@ -51,6 +51,7 @@ dependencies:
   lottie: ^3.3.2
   url_launcher: ^6.3.2
   skeletonizer: ^2.1.0+1
+  sliver_tools: ^0.2.12
 
     
 dev_dependencies:

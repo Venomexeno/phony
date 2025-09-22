@@ -1,7 +1,8 @@
 import '../../features/home/data/models/deal.dart';
 import '../../features/home/data/models/hot_deal_device.dart';
+import '../../features/home/data/models/top_device_item.dart';
 
-List<HotDealDevice> getSkeletonData() {
+List<HotDealDevice> hotDealsSkeletonData() {
   return List.generate(
     3,
     (index) => HotDealDevice(
@@ -17,6 +18,18 @@ List<HotDealDevice> getSkeletonData() {
         discount: 10.0,
       ),
       url: '',
+    ),
+  );
+}
+
+List<TopDeviceItem> topDevicesSkeletonData() {
+  return List.generate(
+    10,
+    (index) => TopDeviceItem(
+      id: 'skeleton_$index',
+      name: 'Apple...',
+      image: '',
+      hits: 12341,
     ),
   );
 }

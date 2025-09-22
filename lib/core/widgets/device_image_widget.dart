@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/device.dart';
+import '../models/device_interface.dart';
 import 'custom_cached_network_image.dart';
 
 class DeviceImageWidget extends StatelessWidget {
@@ -9,17 +9,19 @@ class DeviceImageWidget extends StatelessWidget {
     this.width = 75,
     this.height = 100,
     this.borderRadius = const BorderRadius.all(Radius.circular(10)),
+    this.fit = BoxFit.cover,
   });
 
-  final Device device;
+  final DeviceInterface device;
   final double width;
   final double height;
   final BorderRadiusGeometry borderRadius;
+  final BoxFit fit;
 
   @override
   Widget build(BuildContext context) {
     return CustomCachedNetworkImage(
-      fit: BoxFit.cover,
+      fit: fit,
       borderRadius: borderRadius,
       imageUrl: device.image,
       width: width,

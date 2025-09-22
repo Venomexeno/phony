@@ -6,4 +6,6 @@ void _initCubits() {
   sl.registerFactory<FavoritesCubit>(() => FavoritesCubit());
 
   sl.registerFactory<GetHotDealsCubit>(() => GetHotDealsCubit(sl<HomeRepo>()));
+
+  sl.registerFactory<GetTopDevicesCubit>(() => GetTopDevicesCubit(sl<HomeRepo>()));
 }

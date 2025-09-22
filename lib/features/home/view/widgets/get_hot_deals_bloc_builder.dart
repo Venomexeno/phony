@@ -16,16 +16,18 @@ class GetHotDealsBlocBuilder extends StatelessWidget {
     return BlocBuilder<GetHotDealsCubit, GetHotDealsState>(
       builder: (context, state) {
         if (state is GetHotDealsFailure) {
-          return ExceptionWidget.requestFailure(
-            message: state.message,
-            onTryAgain: () => _onTryAgain(context),
+          return SliverToBoxAdapter(
+            child: ExceptionWidget.requestFailure(
+              message: state.message,
+              onTryAgain: () => _onTryAgain(context),
+            ),
           );
         }
 
-        return CustomSkeletonizer(
+        return CustomSkeletonizer.sliver(
           enabled: state is GetHotDealsLoading,
           child: HotDealsListView(
-            hotDealDevices: state is GetHotDealsSuccess ? state.hotDealDevices : getSkeletonData(),
+            hotDealDevices: state is GetHotDealsSuccess ? state.hotDealDevices : hotDealsSkeletonData(),
           ),
         );
       },

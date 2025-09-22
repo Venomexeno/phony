@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../dependencies/app_theme_cubit/app_theme_cubit.dart';
 import '../../../features/favorites/view/screens/favorites_screen.dart';
 import '../../../features/home/controllers/get_hot_deals_cubit/get_hot_deals_cubit.dart';
+import '../../../features/home/controllers/get_top_devices_cubit/get_top_devices_cubit.dart';
 import '../../../features/home/view/screens/home_screen.dart';
 import '../../di/service_locator.dart';
 import '../../models/main_layout_item.dart';

@@ -18,14 +18,7 @@ class HotDealDeviceItemWidget extends StatelessWidget {
       decoration: _boxDecoration,
       child: Column(
         children: [
-          Skeleton.replace(
-            replacement: Container(
-              width: double.infinity,
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: _borderRadius,
-              ),
-            ),
+          Skeleton.ignore(
             child: DeviceImageWidget(
               device: hotDealDevice,
               width: double.infinity,

@@ -4,9 +4,12 @@ import '../../../../core/error/failure.dart';
 import '../../../../core/functions/functions.dart';
 import '../data_source/home_remote_data_source.dart';
 import '../models/hot_deal_device.dart';
+import '../models/top_devices.dart';
 
 abstract class HomeRepo {
   Future<Either<Failure, List<HotDealDevice>>> getHotDealDevices();
+
+  Future<Either<Failure, List<TopDevices>>> getTopDevices();
 }
 
 class HomeRepoImpl implements HomeRepo {
@@ -18,6 +21,13 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<HotDealDevice>>> getHotDealDevices() async {
     return await tryAndCatchBlock(
       functionToExecute: () async => await _homeRemoteDataSource.getHotDealDevices(),
+    );
+  }
+  
+  @override
+  Future<Either<Failure, List<TopDevices>>> getTopDevices() async {
+    return await tryAndCatchBlock(
+      functionToExecute: () async => await _homeRemoteDataSource.getTopDevices(),
     );
   }
 }

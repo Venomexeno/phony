@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/widgets/custom_list_view.dart';
+import '../../../../core/widgets/custom_sliver_list.dart';
 import '../../data/models/hot_deal_device.dart';
 import 'hot_deal_device_item_widget.dart';
 
@@ -13,10 +13,8 @@ class HotDealsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomListView<HotDealDevice>(
+    return CustomSliverListView<HotDealDevice>(
       items: hotDealDevices,
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return HotDealDeviceItemWidget(hotDealDevice: hotDealDevices[index]);
       },

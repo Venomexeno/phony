@@ -4,8 +4,15 @@ List<MainLayoutItem> get _mainLayoutItems => [
   MainLayoutItem(
     title: 'Home',
     icon: Icons.home_rounded,
-    screen: BlocProvider<GetHotDealsCubit>(
-      create: (context) => sl<GetHotDealsCubit>()..getHotDealDevices(),
+    screen: MultiBlocProvider(
+      providers: [
+        BlocProvider<GetHotDealsCubit>(
+          create: (context) => sl<GetHotDealsCubit>()..getHotDealDevices(),
+        ),
+        BlocProvider<GetTopDevicesCubit>(
+          create: (context) => sl<GetTopDevicesCubit>()..getTopDevices(),
+        ),
+      ],
       child: HomeScreen(),
     ),
   ),
