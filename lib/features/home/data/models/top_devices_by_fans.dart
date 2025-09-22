@@ -1,8 +1,8 @@
 import '../enums/top_devices_enum.dart';
 import 'top_device_item.dart';
-import 'top_devices.dart';
+import 'top_devices_section.dart';
 
-class TopDevicesByFans extends TopDevices {
+class TopDevicesByFans extends TopDevicesSection {
   const TopDevicesByFans({
     required super.topDevicesEnum,
     required super.topDeviceItems,

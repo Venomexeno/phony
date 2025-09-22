@@ -1,4 +1,4 @@
-import '../models/top_devices.dart';
+import '../models/top_devices_section.dart';
 import '../models/top_devices_by_fans.dart';
 import '../models/top_devices_by_interest.dart';
 
@@ -8,7 +8,7 @@ enum TopDevicesEnum {
 
   final String title;
 
-  final TopDevices Function(Map<String, dynamic> map) fromMap;
+  final TopDevicesSection Function(Map<String, dynamic> map) fromMap;
 
   bool get isFans => this == fans;
   bool get isDailyHits => this == dailyInterest;

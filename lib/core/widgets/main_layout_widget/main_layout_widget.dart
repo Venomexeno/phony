@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_lazy_indexed_stack/flutter_lazy_indexed_stack.dart';
 
 import '../../../dependencies/app_theme_cubit/app_theme_cubit.dart';
 import '../../../features/favorites/view/screens/favorites_screen.dart';
@@ -64,7 +65,10 @@ class _MainLayoutWidgetState extends State<MainLayoutWidget> {
           ),
           key: _scaffoldKey,
           bottomNavigationBar: _MainLayoutNavBar(state: this),
-          body: _mainLayoutItems[index].screen,
+          body: LazyIndexedStack(
+            index: index,
+            children: _mainLayoutItems.map((item) => item.screen).toList(),
+          ),
         ),
       ),
     );

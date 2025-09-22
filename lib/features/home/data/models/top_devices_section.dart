@@ -5,11 +5,11 @@ import 'top_device_item.dart';
 import 'top_devices_by_fans.dart';
 import 'top_devices_by_interest.dart';
 
-abstract class TopDevices extends Equatable {
+abstract class TopDevicesSection extends Equatable {
   final TopDevicesEnum topDevicesEnum;
   final List<TopDeviceItem> topDeviceItems;
 
-  const TopDevices({
+  const TopDevicesSection({
     required this.topDevicesEnum,
     required this.topDeviceItems,
   });
@@ -20,11 +20,11 @@ abstract class TopDevices extends Equatable {
   TopDevicesByFans get asTopDevicesByFans => this as TopDevicesByFans;
   TopDevicesByInterest get asTopDevicesByInterest => this as TopDevicesByInterest;
 
-  factory TopDevices.fromMap(Map<String, dynamic> map) {
+  factory TopDevicesSection.fromMap(Map<String, dynamic> map) {
     return TopDevicesEnum.convertTitleToEnum(map['category']).fromMap(map);
   }
 
-  TopDevices copyWith({
+  TopDevicesSection copyWith({
     TopDevicesEnum? topDevicesEnum,
     List<TopDeviceItem>? topDeviceItems,
   });

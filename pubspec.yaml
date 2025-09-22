@@ -52,6 +52,7 @@ dependencies:
   url_launcher: ^6.3.2
   skeletonizer: ^2.1.0+1
   sliver_tools: ^0.2.12
+  flutter_lazy_indexed_stack: ^0.1.0
 
     
 dev_dependencies:
