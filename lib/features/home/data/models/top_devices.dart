@@ -24,8 +24,14 @@ abstract class TopDevices extends Equatable {
     return TopDevicesEnum.convertTitleToEnum(map['category']).fromMap(map);
   }
 
+  TopDevices copyWith({
+    TopDevicesEnum? topDevicesEnum,
+    List<TopDeviceItem>? topDeviceItems,
+  });
+
   @override
   List<Object> get props => [
     topDevicesEnum,
+    topDeviceItems,
   ];
 }

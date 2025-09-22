@@ -14,4 +14,15 @@ class TopDevicesByInterest extends TopDevices {
       topDeviceItems: (map['list'] as List).map((device) => TopDeviceItem.fromMap(device)).toList(),
     );
   }
+
+  @override
+  TopDevicesByInterest copyWith({
+    TopDevicesEnum? topDevicesEnum,
+    List<TopDeviceItem>? topDeviceItems,
+  }) {
+    return TopDevicesByInterest(
+      topDevicesEnum: topDevicesEnum ?? this.topDevicesEnum,
+      topDeviceItems: topDeviceItems ?? this.topDeviceItems,
+    );
+  }
 }

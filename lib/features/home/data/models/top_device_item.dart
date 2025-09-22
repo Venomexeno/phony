@@ -1,4 +1,3 @@
-
 import '../../../../core/models/device_interface.dart';
 
 class TopDeviceItem extends DeviceInterface {
@@ -18,6 +17,24 @@ class TopDeviceItem extends DeviceInterface {
       image: map['image'] ?? '',
       hits: map['favorites'],
     );
+  }
+
+  TopDeviceItem _copyWith({
+    String? id,
+    String? name,
+    String? image,
+    int? hits,
+  }) {
+    return TopDeviceItem(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      image: image ?? this.image,
+      hits: hits ?? this.hits,
+    );
+  }
+
+  TopDeviceItem updateImage({String? image}) {
+    return _copyWith(image: image);
   }
 
   @override

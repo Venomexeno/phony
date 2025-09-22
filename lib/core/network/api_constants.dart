@@ -1,7 +1,8 @@
 import '../../../app/app_configuration.dart';
 
 abstract class ApiK {
-  static String baseUrl = AppConfiguration.baseUrl;
-  static String deals = 'deals';
-  static String topDevices = 'top';
+  static final  String baseUrl = AppConfiguration.baseUrl;
+  static final String deals = 'deals';
+  static final String topDevices = 'top';
+  static final String deviceDetails = 'catalog/devices';
 }

@@ -3,7 +3,6 @@ import 'top_device_item.dart';
 import 'top_devices.dart';
 
 class TopDevicesByFans extends TopDevices {
-
   const TopDevicesByFans({
     required super.topDevicesEnum,
     required super.topDeviceItems,
@@ -13,6 +12,17 @@ class TopDevicesByFans extends TopDevices {
     return TopDevicesByFans(
       topDevicesEnum: TopDevicesEnum.fans,
       topDeviceItems: (map['list'] as List).map((device) => TopDeviceItem.fromMap(device)).toList(),
+    );
+  }
+
+  @override
+  TopDevicesByFans copyWith({
+    TopDevicesEnum? topDevicesEnum,
+    List<TopDeviceItem>? topDeviceItems,
+  }) {
+    return TopDevicesByFans(
+      topDevicesEnum: topDevicesEnum ?? this.topDevicesEnum,
+      topDeviceItems: topDeviceItems ?? this.topDeviceItems,
     );
   }
 }

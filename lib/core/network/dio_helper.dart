@@ -103,8 +103,8 @@ class DioHelper implements ApiHelper {
     dio.options.baseUrl = ApiK.baseUrl;
     Response response = await responseBuilder();
 
-    log("✅✅✅✅✅✅✅✅ Response Success ✅✅✅✅✅✅✅✅");
-    log(response.data.toString());
+    // log("✅✅✅✅✅✅✅✅ Response Success ✅✅✅✅✅✅✅✅");
+    // log(response.data.toString());
 
     return response.data as T;
   }
