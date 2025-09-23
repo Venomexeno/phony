@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../extensions/color_opacity_extension.dart';
 import 'app_colors.dart';
 import 'app_text_styles.dart';
 
@@ -56,7 +57,7 @@ abstract class AppTheme {
     ),
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: AppColors.secondary,
-      selectionColor: AppColors.secondary.withOpacity(0.2),
+      selectionColor: AppColors.secondary.toOpacity(0.2),
       selectionHandleColor: AppColors.secondary,
     ),
     fontFamily: GoogleFonts.notoSans().fontFamily,
@@ -136,7 +137,7 @@ abstract class AppTheme {
     ),
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: AppColors.secondary,
-      selectionColor: AppColors.secondary.withOpacity(0.2),
+      selectionColor: AppColors.secondary.toOpacity(0.2),
       selectionHandleColor: AppColors.secondary,
     ),
   );
