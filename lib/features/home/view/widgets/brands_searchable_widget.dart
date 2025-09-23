@@ -16,19 +16,16 @@ class BrandsSearchableWidget extends StatefulWidget {
 }
 
 class _BrandsSearchableWidgetState extends State<BrandsSearchableWidget> {
-  late final TextEditingController _searchController;
   late List<Brand> _filteredBrands;
 
   @override
   void initState() {
     super.initState();
-    _searchController = TextEditingController();
     _filteredBrands = widget.brands;
   }
 
   @override
   void dispose() {
-    _searchController.dispose();
     super.dispose();
   }
 
@@ -37,8 +34,7 @@ class _BrandsSearchableWidgetState extends State<BrandsSearchableWidget> {
       _filteredBrands = widget.brands
           .where(
             (brand) => brand.name.toLowerCase().contains(value.toLowerCase()),
-          )
-          .toList();
+          ).toList();
     });
   }
 
