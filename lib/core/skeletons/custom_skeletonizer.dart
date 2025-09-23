@@ -60,6 +60,7 @@ class CustomSkeletonizer extends StatelessWidget {
     }
     return Skeletonizer(
       enabled: enabled,
+      enableSwitchAnimation: true,
       ignoreContainers: ignoreContainers,
       containersColor: AppColors.grey500,
       effect: ShimmerEffect(

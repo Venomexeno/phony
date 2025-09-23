@@ -6,4 +6,5 @@ abstract class ApiK {
   static final String topDevices = 'top';
   static final String deviceDetails = 'catalog/devices';
   static final String brands = 'catalog/brands';
+  static final String search = 'search';
 }

@@ -21,19 +21,18 @@ abstract class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       fillColor: AppColors.colore5e7eb,
       filled: true,
-      border: OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.transparent),
-
-        gapPadding: 15,
-        borderRadius: BorderRadius.circular(9999),
-      ),
       contentPadding: EdgeInsets.zero,
       isDense: true,
       suffixIconColor: AppColors.grey400,
+      prefixIconColor: AppColors.grey400,
       hintStyle: AppTextStyles.regular14.copyWith(
         color: AppColors.grey400,
       ),
-      prefixIconColor: AppColors.grey400,
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.transparent),
+        gapPadding: 15,
+        borderRadius: BorderRadius.circular(9999),
+      ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: AppColors.transparent),
         gapPadding: 15,
@@ -96,11 +95,7 @@ abstract class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       fillColor: AppColors.color283039,
       filled: true,
-      border: OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.transparent),
-        gapPadding: 15,
-        borderRadius: BorderRadius.circular(9999),
-      ),
+
       contentPadding: EdgeInsets.zero,
       isDense: true,
       suffixIconColor: AppColors.grey400,
@@ -108,6 +103,11 @@ abstract class AppTheme {
         color: AppColors.grey400,
       ),
       prefixIconColor: AppColors.grey400,
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.transparent),
+        gapPadding: 15,
+        borderRadius: BorderRadius.circular(9999),
+      ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: AppColors.transparent),
         gapPadding: 15,

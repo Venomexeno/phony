@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/widgets/custom_searcbar.dart';
+import '../../../../core/routing/navigations/search_screen_navigation.dart';
+import '../../../../core/widgets/custom_search_bar.dart';
 import 'show_brands_button.dart';
 
 class DeviceFilterWidget extends StatelessWidget {
@@ -13,7 +14,9 @@ class DeviceFilterWidget extends StatelessWidget {
       spacing: 8,
       children: [
         Expanded(
-          child: CustomSearcbar(),
+          child: CustomSearchBar(
+            onTap: () => context.navigateToSearchScreen(),
+          ),
         ),
         ShowBrandsButton(),
       ],

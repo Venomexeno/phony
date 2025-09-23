@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../core/style/app_text_styles.dart';
-import '../../../../core/widgets/custom_searcbar.dart';
+import '../../../../core/widgets/base_list_with_searchable_widget.dart';
 import '../../data/models/brand.dart';
 import 'brands_list_view.dart';
 
@@ -16,50 +14,29 @@ class BrandsSearchableWidget extends StatefulWidget {
 }
 
 class _BrandsSearchableWidgetState extends State<BrandsSearchableWidget> {
-  late List<Brand> _filteredBrands;
+  late List<Brand> _filteredItems;
 
   @override
   void initState() {
     super.initState();
-    _filteredBrands = widget.brands;
+    _filteredItems = widget.brands;
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  void _onSearchChanged(String value) {
+  void _onChanged(String value) {
     setState(() {
-      _filteredBrands = widget.brands
+      _filteredItems = widget.brands
           .where(
-            (brand) => brand.name.toLowerCase().contains(value.toLowerCase()),
+            (item) => item.name.toLowerCase().contains(value.toLowerCase()),
           ).toList();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Skeleton.keep(
-          child: Text(
-            'Select a Brand',
-            style: AppTextStyles.bold16,
-          ),
-        ),
-        SizedBox(height: 8),
-        Skeleton.replace(
-          replacement: SizedBox.shrink(),
-          child: CustomSearcbar(
-            onChanged: _onSearchChanged,
-          ),
-        ),
-        SizedBox(height: 16),
-        Expanded(
-          child: BrandsListView(brands: _filteredBrands),
-        ),
-      ],
+    return BaseListWithSearchableWidget(
+      items: _filteredItems,
+      onChanged: _onChanged,
+      listView: BrandsListView(brands: _filteredItems),
     );
   }
 }

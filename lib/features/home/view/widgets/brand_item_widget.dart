@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/routing/navigations/brand_devices_screen_navigation.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/app_text_styles.dart';
 import '../../../../dependencies/app_theme_cubit/app_theme_cubit.dart';
@@ -12,9 +13,7 @@ class BrandItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        print(brand.id);
-      },
+      onTap: () => context.navigateToBrandDevicesScreen(brand: brand),
       child: Row(
         children: [
           Expanded(

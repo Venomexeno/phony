@@ -3,12 +3,18 @@ import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import '../../dependencies/app_theme_cubit/app_theme_cubit.dart';
+import '../../features/brand_devices/controllers/get_brand_devices_cubit/get_brand_devices_cubit.dart';
+import '../../features/brand_devices/data/data_source/brand_devices_remote_data_source.dart';
+import '../../features/brand_devices/data/repo/brand_devices_repo.dart';
 import '../../features/favorites/controller/favorites_cubit/favorites_cubit.dart';
 import '../../features/home/controllers/get_brands_cubit/get_brands_cubit.dart';
 import '../../features/home/controllers/get_hot_deals_cubit/get_hot_deals_cubit.dart';
 import '../../features/home/controllers/get_top_devices_cubit/get_top_devices_cubit.dart';
 import '../../features/home/data/data_source/home_remote_data_source.dart';
 import '../../features/home/data/repo/home_repo.dart';
+import '../../features/search/controllers/search_device_cubit/search_device_cubit.dart';
+import '../../features/search/data/data_source/search_remote_data_source.dart';
+import '../../features/search/data/repo/search_repo.dart';
 import '../helpers/network_connection_helper/internet_connection_checker_helper.dart';
 import '../helpers/network_connection_helper/network_connection_helper.dart';
 import '../network/api_helper.dart';

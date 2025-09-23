@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../style/app_text_styles.dart';
 
-class CustomSearcbar extends StatelessWidget {
-  const CustomSearcbar({
+class CustomSearchBar extends StatelessWidget {
+  const CustomSearchBar({
     super.key,
-    this.hasFocus = false,
+    this.autoFocus = false,
     this.onTap,
     this.controller,
     this.height = 40,
@@ -14,7 +14,7 @@ class CustomSearcbar extends StatelessWidget {
     this.onFieldSubmitted,
   });
 
-  final bool hasFocus;
+  final bool autoFocus;
   final VoidCallback? onTap;
   final TextEditingController? controller;
   final double? height;
@@ -30,13 +30,14 @@ class CustomSearcbar extends StatelessWidget {
         width: width,
         height: height,
         child: TextFormField(
+          enabled: onTap == null,
           controller: controller,
           onTapOutside: (event) => FocusScope.of(context).unfocus(),
-          focusNode: hasFocus ? FocusNode() : null,
+          autofocus: autoFocus,
           style: AppTextStyles.medium14,
           onChanged: onChanged,
           onFieldSubmitted: onFieldSubmitted,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: 'Search for a device',
             suffixIcon: Icon(Icons.search),
           ),

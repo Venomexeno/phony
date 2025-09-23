@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../../core/models/device.dart';
-import '../../../../core/style/app_colors.dart';
-import '../../../../core/style/app_text_styles.dart';
+import '../models/device.dart';
+import '../style/app_colors.dart';
+import '../style/app_text_styles.dart';
 
-class FavoriteDeviceInfoWidget extends StatelessWidget {
-  const FavoriteDeviceInfoWidget({
+class DeviceInfoWidget extends StatelessWidget {
+  const DeviceInfoWidget({
     super.key,
     required this.device,
   });

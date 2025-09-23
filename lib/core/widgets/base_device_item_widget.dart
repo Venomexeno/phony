@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+import 'package:skeletonizer/skeletonizer.dart';
+import '../../../../core/models/device.dart';
+import '../../../../core/style/app_box_decorations.dart';
+import '../../../../core/style/app_colors.dart';
+import '../../../../core/widgets/device_image_widget.dart';
+import '../../../../dependencies/app_theme_cubit/app_theme_cubit.dart';
+import 'device_info_widget.dart';
+
+class BaseDeviceItemWidget extends StatelessWidget {
+  const BaseDeviceItemWidget({
+    super.key,
+    required this.device,
+    this.trailing,
+  });
+
+  final Device device;
+  final Widget? trailing;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        print(device.id);
+      },
+      child: Container(
+        padding: EdgeInsets.all(10),
+        decoration: _boxDecoration,
+        child: Row(
+          spacing: 8,
+          children: [
+            Skeleton.ignore(
+              child: DeviceImageWidget(
+                device: device,
+              ),
+            ),
+            Expanded(
+              child: DeviceInfoWidget(device: device),
+            ),
+            if (trailing != null) trailing!,
+          ],
+        ),
+      ),
+    );
+  }
+
+  BoxDecoration get _boxDecoration => AppBoxDecorations.outLined(
+    borderColor: AppThemeCubit.isDark ? AppColors.grey700 : AppColors.grey200,
+    color: AppThemeCubit.isDark ? AppColors.color1a242e : AppColors.colorf6f7f8,
+  );
+}
