@@ -1,4 +1,3 @@
-
 import '../../../../core/di/cubit/custom_cubit.dart';
 import '../../../../core/error/failure.dart';
 import '../../data/models/brand.dart';
@@ -11,8 +10,9 @@ class GetBrandsCubit extends CustomCubit<GetBrandsState> {
 
   final HomeRepo _homeRepo;
 
-  Future<void> getBrands() async {
+   final List<Brand> _brands = [];
 
+  Future<void> getBrands() async {
     if (state is GetBrandsSuccess) return;
 
     emit(GetBrandsLoading());
@@ -30,9 +30,16 @@ class GetBrandsCubit extends CustomCubit<GetBrandsState> {
     ),
   );
 
-  void _success(List<Brand> brands) => emit(
-    GetBrandsSuccess(
-      brands: brands,
-    ),
-  );
+  void _success(List<Brand> brands) {
+    _brands.clear();
+    _brands.addAll(brands);
+    emit(GetBrandsSuccess(brands: _brands));
+  }
+
+  void searchForBrand(String query) {
+    final filteredBrands = _brands
+        .where((brand) => brand.name.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    emit(GetBrandsSuccess(brands: filteredBrands));
+  }
 }

@@ -1,4 +1,3 @@
-
 import '../../../../core/di/cubit/custom_cubit.dart';
 import '../../../../core/error/failure.dart';
 import '../../../../core/models/device.dart';
@@ -11,6 +10,8 @@ class GetBrandDevicesCubit extends CustomCubit<GetBrandDevicesState> {
   GetBrandDevicesCubit(this._brandDevicesRepo) : super(GetBrandDevicesInitial());
 
   final BrandDevicesRepo _brandDevicesRepo;
+
+  final List<Device> _devices = [];
 
   Future<void> getBrandDevices(Brand brand) async {
     emit(GetBrandDevicesLoading());
@@ -26,11 +27,17 @@ class GetBrandDevicesCubit extends CustomCubit<GetBrandDevicesState> {
       message: failure.message,
     ),
   );
-  
-  void _success(List<Device> devices) => emit(
-    GetBrandDevicesSuccess(
-      devices: devices,
-    ),
-  );
-}
 
+  void _success(List<Device> devices) {
+    _devices.clear();
+    _devices.addAll(devices);
+    emit(GetBrandDevicesSuccess(devices: _devices));
+  }
+
+  void searchForDevice(String query) {
+    final filteredDevices = _devices
+        .where((device) => device.name.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    emit(GetBrandDevicesSuccess(devices: filteredDevices));
+  }
+}
