@@ -48,6 +48,11 @@ abstract class AppTheme {
         gapPadding: 15,
         borderRadius: BorderRadius.circular(9999),
       ),
+      disabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.transparent),
+        gapPadding: 15,
+        borderRadius: BorderRadius.circular(9999),
+      ),
     ),
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: AppColors.secondary,
@@ -119,6 +124,11 @@ abstract class AppTheme {
         borderRadius: BorderRadius.circular(9999),
       ),
       errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.transparent),
+        gapPadding: 15,
+        borderRadius: BorderRadius.circular(9999),
+      ),
+      disabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: AppColors.transparent),
         gapPadding: 15,
         borderRadius: BorderRadius.circular(9999),
