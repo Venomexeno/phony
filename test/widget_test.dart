@@ -7,13 +7,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:phony/app/environment_type.dart';
 import 'package:phony/app/phony_app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(PhonyApp(enviromentType: EnviromentType.development));
+    await tester.pumpWidget(PhonyApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

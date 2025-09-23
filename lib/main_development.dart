@@ -22,9 +22,7 @@ void main(List<String> args) {
       runApp(
         DevicePreview(
           enabled: false,
-          builder: (context) => const PhonyApp(
-            enviromentType: EnviromentType.development,
-          ),
+          builder: (context) => const PhonyApp(),
         ),
       );
     },

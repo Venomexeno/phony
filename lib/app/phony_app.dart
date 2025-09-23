@@ -7,17 +7,14 @@ import '../core/style/app_theme.dart';
 import '../core/widgets/main_layout_widget/main_layout_widget.dart';
 import '../dependencies/app_theme_cubit/app_theme_cubit.dart';
 import '../features/favorites/controller/favorites_cubit/favorites_cubit.dart';
-import 'environment_type.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
 class PhonyApp extends StatelessWidget {
   const PhonyApp({
     super.key,
-    required this.enviromentType,
   });
 
-  final EnviromentType enviromentType;
 
   @override
   Widget build(BuildContext context) {
