@@ -32,6 +32,6 @@ List<MainLayoutItem> get _mainLayoutItems => [
   const MainLayoutItem(
     title: 'Settings',
     icon: Icons.settings_rounded,
-    screen: Placeholder(),
+    screen: SettingsScreen(),
   ),
 ];

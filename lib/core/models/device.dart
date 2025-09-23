@@ -10,16 +10,16 @@ class Device extends DeviceInterface {
     required this.description,
   });
 
-  factory Device.fromJson(Map<String, dynamic> json) {
+  factory Device.fromMap(Map<String, dynamic> map) {
     return Device(
-      id: json['id'],
-      name: json['name'],
-      image: json['img'],
-      description: json['description'],
+      id: map['id'],
+      name: map['name'],
+      image: map['img'],
+      description: map['description'],
     );
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     return {
       'id': id,
       'name': name,

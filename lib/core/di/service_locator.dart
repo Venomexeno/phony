@@ -4,6 +4,7 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import '../../dependencies/app_theme_cubit/app_theme_cubit.dart';
 import '../../features/favorites/controller/favorites_cubit/favorites_cubit.dart';
+import '../../features/home/controllers/get_brands_cubit/get_brands_cubit.dart';
 import '../../features/home/controllers/get_hot_deals_cubit/get_hot_deals_cubit.dart';
 import '../../features/home/controllers/get_top_devices_cubit/get_top_devices_cubit.dart';
 import '../../features/home/data/data_source/home_remote_data_source.dart';

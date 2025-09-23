@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import '../../../../core/error/failure.dart';
 import '../../../../core/functions/functions.dart';
 import '../data_source/home_remote_data_source.dart';
+import '../models/brand.dart';
 import '../models/hot_deal_device.dart';
 import '../models/top_device_item.dart';
 import '../models/top_devices_section.dart';
@@ -13,6 +14,8 @@ abstract class HomeRepo {
   Future<Either<Failure, List<TopDevicesSection>>> getTopDevices();
 
   Future<Either<Failure, String>> getTopDeviceImage(TopDeviceItem device);
+
+  Future<Either<Failure, List<Brand>>> getBrands();
 }
 
 class HomeRepoImpl implements HomeRepo {
@@ -38,6 +41,13 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, String>> getTopDeviceImage(TopDeviceItem device) async {
     return await tryAndCatchBlock(
       functionToExecute: () async => await _homeRemoteDataSource.getTopDeviceImage(device),
+    );
+  }
+  
+  @override
+  Future<Either<Failure, List<Brand>>> getBrands() async{
+    return await tryAndCatchBlock(
+      functionToExecute: () async => await _homeRemoteDataSource.getBrands(),
     );
   }
 }

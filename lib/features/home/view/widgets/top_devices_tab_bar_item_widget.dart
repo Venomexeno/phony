@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/style/app_colors.dart';
+import '../../../../core/style/app_text_styles.dart';
 import '../../data/enums/top_devices_enum.dart';
 
 class TopDevicesTabBarItemWidget extends StatelessWidget {
@@ -22,7 +23,7 @@ class TopDevicesTabBarItemWidget extends StatelessWidget {
       child: Column(
         spacing: 4,
         children: [
-          Text(topDevices.title),
+          Text(topDevices.title, style: AppTextStyles.medium14),
           AnimatedSwitcher(
             duration: const Duration(milliseconds: 300),
             child: isSelected

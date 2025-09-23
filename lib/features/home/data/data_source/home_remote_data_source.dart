@@ -1,5 +1,6 @@
 import '../../../../core/network/api_constants.dart';
 import '../../../../core/network/api_helper.dart';
+import '../models/brand.dart';
 import '../models/hot_deal_device.dart';
 import '../models/top_device_item.dart';
 import '../models/top_devices_section.dart';
@@ -10,6 +11,8 @@ abstract class HomeRemoteDataSource {
   Future<List<TopDevicesSection>> getTopDevices();
 
   Future<String> getTopDeviceImage(TopDeviceItem device);
+
+  Future<List<Brand>> getBrands();
 }
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
@@ -42,5 +45,14 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     );
 
     return response['img'] ?? '';
+  }
+
+  @override
+  Future<List<Brand>> getBrands() async {
+    final response = await _apiHelper.get<List<dynamic>>(
+      endPoint: ApiK.brands,
+    );
+
+    return response.map((e) => Brand.fromMap(e)).toList();
   }
 }

@@ -1,3 +1,4 @@
+import '../../features/home/data/models/brand.dart';
 import '../../features/home/data/models/deal.dart';
 import '../../features/home/data/models/hot_deal_device.dart';
 import '../../features/home/data/models/top_device_item.dart';
@@ -30,6 +31,17 @@ List<TopDeviceItem> topDevicesSkeletonData() {
       name: 'Apple...',
       image: '',
       hits: 12341,
+    ),
+  );
+}
+
+List<Brand> brandsSkeletonData() {
+  return List.generate(
+    10,
+    (index) => Brand(
+      id: 'skeleton_$index',
+      name: 'Apple...',
+      numberOfDevices: 12341,
     ),
   );
 }

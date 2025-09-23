@@ -4,6 +4,7 @@ import '../../../../core/style/app_box_decorations.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/app_text_styles.dart';
 import '../../../../core/widgets/device_image_widget.dart';
+import '../../../../dependencies/app_theme_cubit/app_theme_cubit.dart';
 import '../../data/models/top_device_item.dart';
 
 class TopDeviceItemWidget extends StatelessWidget {
@@ -15,10 +16,7 @@ class TopDeviceItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      decoration: AppBoxDecorations.solid(
-        withShadow: false,
-        color: AppColors.colore5e7eb,
-      ),
+      decoration: _decoration,
       child: Column(
         children: [
           Expanded(
@@ -51,6 +49,11 @@ class TopDeviceItemWidget extends StatelessWidget {
       ),
     );
   }
+
+  BoxDecoration get _decoration => AppBoxDecorations.solid(
+    withShadow: false,
+    color: AppThemeCubit.isDark ? AppColors.color1a242e : AppColors.colorf6f7f8,
+  );
 
   TextStyle get _textStyle => AppTextStyles.medium14;
 

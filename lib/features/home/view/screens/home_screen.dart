@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/style/app_text_styles.dart';
 import '../../data/enums/top_devices_enum.dart';
+import '../widgets/device_filter_widget.dart';
 import '../widgets/get_hot_deals_bloc_builder.dart';
 import '../widgets/get_top_devices_bloc_builder.dart';
 import '../widgets/top_devices_tab_bar_widget.dart';
@@ -26,6 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: _padding,
       child: CustomScrollView(
         slivers: [
+          SliverToBoxAdapter(
+            child: DeviceFilterWidget(),
+          ),
+
+          SliverToBoxAdapter(
+            child: SizedBox(height: 16),
+          ),
+
           SliverToBoxAdapter(
             child: TopDevicesTabBarWidget(
               selectedTopDevicesEnum: selectedTopDevicesEnum,

@@ -29,3 +29,21 @@ Future<Either<Failure, T>> tryAndCatchBlock<T>({
     return Left(Failure(message: failureMessage));
   }
 }
+
+void showMyModalBottomSheet({
+  bool isScrollControlled = true,
+  bool isDismissible = true,
+  bool enableDrag = true,
+  required BuildContext context,
+  required WidgetBuilder builder,
+  AnimationController? transitionAnimationController,
+}) {
+  showModalBottomSheet(
+    context: context,
+    transitionAnimationController: transitionAnimationController,
+    isScrollControlled: isScrollControlled,
+    isDismissible: isDismissible,
+    enableDrag: enableDrag,
+    builder: builder,
+  );
+}

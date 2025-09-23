@@ -61,9 +61,7 @@ class ExceptionWidget extends StatelessWidget {
         children: [
           Text(
             "Opps... It’s empty here!",
-            style: AppTextStyles.bold22.copyWith(
-              color: AppColors.color6B7280,
-            ),
+            style: AppTextStyles.bold22,
           ),
           const SizedBox(height: 7),
           Text(

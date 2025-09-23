@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
+import 'app_text_styles.dart';
 
 abstract class AppTheme {
   //Light Theme
@@ -13,6 +14,46 @@ abstract class AppTheme {
         foregroundColor: AppColors.light,
         elevation: 0,
       ),
+    ),
+    iconTheme: IconThemeData(
+      color: AppColors.color1F2937,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      fillColor: AppColors.colore5e7eb,
+      filled: true,
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.transparent),
+
+        gapPadding: 15,
+        borderRadius: BorderRadius.circular(9999),
+      ),
+      contentPadding: EdgeInsets.zero,
+      isDense: true,
+      suffixIconColor: AppColors.grey400,
+      hintStyle: AppTextStyles.regular14.copyWith(
+        color: AppColors.grey400,
+      ),
+      prefixIconColor: AppColors.grey400,
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.transparent),
+        gapPadding: 15,
+        borderRadius: BorderRadius.circular(9999),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.transparent),
+        gapPadding: 15,
+        borderRadius: BorderRadius.circular(9999),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.transparent),
+        gapPadding: 15,
+        borderRadius: BorderRadius.circular(9999),
+      ),
+    ),
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: AppColors.secondary,
+      selectionColor: AppColors.secondary.withOpacity(0.2),
+      selectionHandleColor: AppColors.secondary,
     ),
     fontFamily: GoogleFonts.notoSans().fontFamily,
     appBarTheme: const AppBarTheme(
@@ -30,6 +71,9 @@ abstract class AppTheme {
   //Dark Theme
   static ThemeData get darkTheme => ThemeData(
     scaffoldBackgroundColor: AppColors.dark,
+    iconTheme: IconThemeData(
+      color: AppColors.light,
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.secondary,
@@ -48,6 +92,42 @@ abstract class AppTheme {
       iconTheme: IconThemeData(
         color: AppColors.light,
       ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      fillColor: AppColors.color283039,
+      filled: true,
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.transparent),
+        gapPadding: 15,
+        borderRadius: BorderRadius.circular(9999),
+      ),
+      contentPadding: EdgeInsets.zero,
+      isDense: true,
+      suffixIconColor: AppColors.grey400,
+      hintStyle: AppTextStyles.regular14.copyWith(
+        color: AppColors.grey400,
+      ),
+      prefixIconColor: AppColors.grey400,
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.transparent),
+        gapPadding: 15,
+        borderRadius: BorderRadius.circular(9999),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.transparent),
+        gapPadding: 15,
+        borderRadius: BorderRadius.circular(9999),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: AppColors.transparent),
+        gapPadding: 15,
+        borderRadius: BorderRadius.circular(9999),
+      ),
+    ),
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: AppColors.secondary,
+      selectionColor: AppColors.secondary.withOpacity(0.2),
+      selectionHandleColor: AppColors.secondary,
     ),
   );
 }
