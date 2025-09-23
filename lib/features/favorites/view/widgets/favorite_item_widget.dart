@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/models/device.dart';
+import '../../../../core/models/detailed_device.dart';
 import '../../../../core/widgets/base_device_item_widget.dart';
 import 'remove_favorite_button.dart';
 
@@ -9,7 +9,7 @@ class FavoriteItemWidget extends StatelessWidget {
     required this.device,
   });
 
-  final Device device;
+  final DetailedDevice device;
 
   @override
   Widget build(BuildContext context) {

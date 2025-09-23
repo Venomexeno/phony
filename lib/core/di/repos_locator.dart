@@ -6,4 +6,6 @@ void _initRepos() {
   sl.registerFactory<SearchRepo>(() => SearchRepoImpl(sl<SearchRemoteDataSource>()));
 
   sl.registerFactory<BrandDevicesRepo>(() => BrandDevicesRepoImpl(sl<BrandDevicesRemoteDataSource>()));
+
+  sl.registerFactory<DeviceDetailsRepo>(() => DeviceDetailsRepoImpl(sl<DeviceDetailsRemoteDataSource>()));
 }

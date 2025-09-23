@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+import '../../../../core/routing/navigations/device_details_screen_navigation.dart';
 import '../../../../core/style/app_box_decorations.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/widgets/device_image_widget.dart';
@@ -14,20 +15,25 @@ class HotDealDeviceItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: _boxDecoration,
-      child: Column(
-        children: [
-          Skeleton.ignore(
-            child: DeviceImageWidget(
-              device: hotDealDevice,
-              width: double.infinity,
-              height: 200,
-              borderRadius: _borderRadius,
+    return GestureDetector(
+      onTap: () {
+        context.navigateToDeviceDetailsScreen(device: hotDealDevice);
+      },
+      child: Container(
+        decoration: _boxDecoration,
+        child: Column(
+          children: [
+            Skeleton.ignore(
+              child: DeviceImageWidget(
+                device: hotDealDevice,
+                width: double.infinity,
+                height: 200,
+                borderRadius: _borderRadius,
+              ),
             ),
-          ),
-          DealInfoWidget(hotDealDevice: hotDealDevice),
-        ],
+            DealInfoWidget(hotDealDevice: hotDealDevice),
+          ],
+        ),
       ),
     );
   }

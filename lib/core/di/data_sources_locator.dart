@@ -6,4 +6,6 @@ void _initDataSources() {
   sl.registerFactory<SearchRemoteDataSource>(() => SearchRemoteDataSourceImpl(sl<ApiHelper>()));
 
   sl.registerFactory<BrandDevicesRemoteDataSource>(() => BrandDevicesRemoteDataSourceImpl(sl<ApiHelper>()));
+
+  sl.registerFactory<DeviceDetailsRemoteDataSource>(() => DeviceDetailsRemoteDataSourceImpl(sl<ApiHelper>()));
 }

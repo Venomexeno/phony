@@ -15,16 +15,26 @@ class DetailedDevice extends Device {
     required this.detailedSpecs,
   });
 
-  factory DetailedDevice.fromJson(Map<String, dynamic> json) {
+  factory DetailedDevice.fromMap(Map<String, dynamic> map) {
     return DetailedDevice(
-      id: json['id'],
-      name: json['name'],
-      image: json['img'],
-      description: json['description'],
-      quickSpecs: (json['quickSpecs'] as List).map((spec) => DeviceQuickSpec.fromJson(spec)).toList(),
-      detailedSpecs: (json['detailedSpecs'] as List).map((spec) => DeviceDetailedSpec.fromJson(spec)).toList(),
+      id: map['id'],
+      name: map['name'],
+      image: map['img'],
+      description: map['description'],
+      quickSpecs: (map['quickSpec'] as List).map((spec) => DeviceQuickSpec.fromMap(spec)).toList(),
+      detailedSpecs: (map['detailSpec'] as List).map((spec) => DeviceDetailedSpec.fromMap(spec)).toList(),
     );
   }
+
+  @override
+  Map<String, dynamic> get toMap => {
+    'id': id,
+    'name': name,
+    'img': image,
+    'description': description,
+    'quickSpecs': quickSpecs.map((spec) => spec.toMap()).toList(),
+    'detailedSpecs': detailedSpecs.map((spec) => spec.toMap()).toList(),
+  };
 
   @override
   List<Object> get props => [

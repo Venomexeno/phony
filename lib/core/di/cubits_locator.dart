@@ -14,4 +14,6 @@ void _initCubits() {
   sl.registerFactory<SearchDeviceCubit>(() => SearchDeviceCubit(sl<SearchRepo>()));
 
   sl.registerFactory<GetBrandDevicesCubit>(() => GetBrandDevicesCubit(sl<BrandDevicesRepo>()));
+
+  sl.registerFactory<GetDeviceDetailsCubit>(() => GetDeviceDetailsCubit(sl<DeviceDetailsRepo>()));
 }

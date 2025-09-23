@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/models/detailed_device.dart';
 import '../../../../core/models/device.dart';
 import '../../../../core/widgets/custom_list_view.dart';
 import 'favorite_item_widget.dart';
@@ -9,7 +10,7 @@ class FavoritesListView extends StatelessWidget {
     required this.devices,
   });
 
-  final List<Device> devices;
+  final List<DetailedDevice> devices;
 
   @override
   Widget build(BuildContext context) {

@@ -19,14 +19,10 @@ class Device extends DeviceInterface {
     );
   }
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'img': image,
-      'description': description,
-    };
-  }
+  Map<String, dynamic> get toMap => {
+    'id': id,
+    'description': description,
+  };
 
   @override
   List<Object> get props => [

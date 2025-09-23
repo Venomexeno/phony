@@ -5,6 +5,7 @@ import '../../../../core/style/app_box_decorations.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/widgets/device_image_widget.dart';
 import '../../../../dependencies/app_theme_cubit/app_theme_cubit.dart';
+import '../routing/navigations/device_details_screen_navigation.dart';
 import 'device_info_widget.dart';
 
 class BaseDeviceItemWidget extends StatelessWidget {
@@ -20,9 +21,7 @@ class BaseDeviceItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        print(device.id);
-      },
+      onTap: () => _onTap(context),
       child: Container(
         padding: EdgeInsets.all(10),
         decoration: _boxDecoration,
@@ -48,4 +47,8 @@ class BaseDeviceItemWidget extends StatelessWidget {
     borderColor: AppThemeCubit.isDark ? AppColors.grey700 : AppColors.grey200,
     color: AppThemeCubit.isDark ? AppColors.color1a242e : AppColors.colorf6f7f8,
   );
+
+  void _onTap(BuildContext context) {
+    context.navigateToDeviceDetailsScreen(device: device);
+  }
 }

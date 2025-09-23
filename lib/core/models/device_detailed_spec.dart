@@ -11,11 +11,18 @@ class DeviceDetailedSpec extends Equatable {
     required this.specifications,
   });
 
-  factory DeviceDetailedSpec.fromJson(Map<String, dynamic> json) {
+  factory DeviceDetailedSpec.fromMap(Map<String, dynamic> map) {
     return DeviceDetailedSpec(
-      category: json['category'],
-      specifications: (json['specifications'] as List).map((spec) => DeviceQuickSpec.fromJson(spec)).toList(),
+      category: map['category'],
+      specifications: (map['specifications'] as List).map((spec) => DeviceQuickSpec.fromMap(spec)).toList(),
     );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'category': category,
+      'specifications': specifications.map((spec) => spec.toMap()).toList(),
+    };
   }
 
   @override

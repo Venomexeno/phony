@@ -24,10 +24,12 @@ class GetHotDealsBlocBuilder extends StatelessWidget {
           );
         }
 
+        final bool isSuccess = state is GetHotDealsSuccess;
+
         return CustomSkeletonizer.sliver(
-          enabled: state is GetHotDealsLoading,
+          enabled: !isSuccess,
           child: HotDealsListView(
-            hotDealDevices: state is GetHotDealsSuccess ? state.hotDealDevices : hotDealsSkeletonData(),
+            hotDealDevices: isSuccess ? state.hotDealDevices : hotDealsSkeletonData(),
           ),
         );
       },

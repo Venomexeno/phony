@@ -13,7 +13,7 @@ class BrandItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.navigateToBrandDevicesScreen(brand: brand),
+      onTap: () => _onTap(context),
       child: Row(
         children: [
           Expanded(
@@ -44,5 +44,9 @@ class BrandItemWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _onTap(BuildContext context) {
+    context.navigateToBrandDevicesScreen(brand: brand);
   }
 }
