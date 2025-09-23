@@ -35,8 +35,9 @@ class GetTopDevicesBlocBuilder extends StatelessWidget {
         return CustomSkeletonizer.sliver(
           enabled: !isSuccess,
           child: SliverAnimatedSwitcher(
-            duration: const Duration(milliseconds: 1000),
+            duration: const Duration(milliseconds: 300),
             child: TopDevicesGridView(
+              key: ValueKey(selectedTopDevicesEnum),
               topDevices: isSuccess
                   ? (selectedTopDevicesEnum.isFans
                         ? state.topDevicesByFans.topDeviceItems
