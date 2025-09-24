@@ -1,8 +1,8 @@
-import 'device.dart';
 import 'device_detailed_spec.dart';
+import 'device_interface.dart';
 import 'device_quick_spec.dart';
 
-class DetailedDevice extends Device {
+class DetailedDevice extends DeviceInterface {
   final List<DeviceQuickSpec> quickSpecs;
   final List<DeviceDetailedSpec> detailedSpecs;
 
@@ -10,7 +10,6 @@ class DetailedDevice extends Device {
     required super.id,
     required super.name,
     required super.image,
-    required super.description,
     required this.quickSpecs,
     required this.detailedSpecs,
   });
@@ -20,18 +19,22 @@ class DetailedDevice extends Device {
       id: map['id'],
       name: map['name'],
       image: map['img'],
-      description: map['description'],
       quickSpecs: (map['quickSpec'] as List).map((spec) => DeviceQuickSpec.fromMap(spec)).toList(),
       detailedSpecs: (map['detailSpec'] as List).map((spec) => DeviceDetailedSpec.fromMap(spec)).toList(),
     );
   }
+
+  String get quickSpecsString => quickSpecs
+      .map((spec) => spec.value)
+      .where((value) => value.isNotEmpty && value != 'undefined')
+      .take(4)
+      .join(' ● ');
 
   @override
   Map<String, dynamic> get toMap => {
     'id': id,
     'name': name,
     'img': image,
-    'description': description,
     'quickSpecs': quickSpecs.map((spec) => spec.toMap()).toList(),
     'detailedSpecs': detailedSpecs.map((spec) => spec.toMap()).toList(),
   };

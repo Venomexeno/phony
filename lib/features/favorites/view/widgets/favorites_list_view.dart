@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../../core/models/detailed_device.dart';
-import '../../../../core/models/device.dart';
 import '../../../../core/widgets/custom_list_view.dart';
 import 'favorite_item_widget.dart';
 
@@ -14,7 +13,7 @@ class FavoritesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomListView<Device>(
+    return CustomListView<DetailedDevice>(
       padding: _padding,
       items: devices,
       itemBuilder: (context, index) => FavoriteItemWidget(device: devices[index]),

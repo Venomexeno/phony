@@ -7,9 +7,15 @@ class DeviceQuickSpec extends Equatable {
   const DeviceQuickSpec({required this.title, required this.value});
 
   factory DeviceQuickSpec.fromMap(Map<String, dynamic> map) {
+    String title = (map['name'] as String).trim().replaceAll('"', '').replaceAll("'", '');
+    String value = (map['value'] as String).trim().replaceAll('"', '').replaceAll("'", '');
+
+    title = title.isEmpty ? 'undefined' : title;
+    value = value.isEmpty ? 'undefined' : value;
+
     return DeviceQuickSpec(
-      title: map['name'],
-      value: map['value'],
+      title: title,
+      value: value,
     );
   }
 

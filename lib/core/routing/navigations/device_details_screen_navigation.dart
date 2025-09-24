@@ -4,13 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../features/device_details/controllers/get_device_details_cubit/get_device_details_cubit.dart';
 import '../../../features/device_details/view/screens/device_details_screen.dart';
 import '../../di/service_locator.dart';
-import '../../models/device.dart';
+import '../../models/device_interface.dart';
 import '../navigation_methods_extension.dart';
 import '../navigation_type.dart';
 
 extension DeviceDetailsScreenNavigation on BuildContext {
   void navigateToDeviceDetailsScreen({
-    required Device device,
+    required DeviceInterface device,
   }) {
     navigate(
       screen: BlocProvider<GetDeviceDetailsCubit>(

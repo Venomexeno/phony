@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import '../../../../core/models/device.dart';
 import '../../../../core/style/app_box_decorations.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/widgets/device_image_widget.dart';
 import '../../../../dependencies/app_theme_cubit/app_theme_cubit.dart';
+import '../models/device_interface.dart';
 import '../routing/navigations/device_details_screen_navigation.dart';
-import 'device_info_widget.dart';
 
 class BaseDeviceItemWidget extends StatelessWidget {
   const BaseDeviceItemWidget({
@@ -15,7 +14,7 @@ class BaseDeviceItemWidget extends StatelessWidget {
     this.trailing,
   });
 
-  final Device device;
+  final DeviceInterface device;
   final Widget? trailing;
 
   @override
@@ -26,17 +25,14 @@ class BaseDeviceItemWidget extends StatelessWidget {
         padding: EdgeInsets.all(10),
         decoration: _boxDecoration,
         child: Row(
-          spacing: 8,
           children: [
             Skeleton.ignore(
               child: DeviceImageWidget(
                 device: device,
               ),
             ),
-            Expanded(
-              child: DeviceInfoWidget(device: device),
-            ),
-            if (trailing != null) trailing!,
+            const SizedBox(width: 8),
+            if (trailing != null) Expanded(child: trailing!),
           ],
         ),
       ),

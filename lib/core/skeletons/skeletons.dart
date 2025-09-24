@@ -67,7 +67,6 @@ DetailedDevice deviceDetailsSkeletonData() {
     id: '',
     name: 'Apple...',
     image: '',
-    description: 'This is a description With Long Text And Many Words Try To Fit In This Description And Many Words',
     quickSpecs: List.generate(
       3,
       (index) => DeviceQuickSpec(

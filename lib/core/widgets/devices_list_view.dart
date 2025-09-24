@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/device.dart';
-import 'base_device_item_widget.dart';
 import 'custom_list_view.dart';
+import 'device_item_widget.dart';
 
 class DevicesListView extends StatelessWidget {
   const DevicesListView({
@@ -17,9 +17,7 @@ class DevicesListView extends StatelessWidget {
       items: devices,
       itemBuilder: (context, index) {
         final device = devices[index];
-        return BaseDeviceItemWidget(
-          device: device,
-        );
+        return DeviceItemWidget(device: device);
       },
       separatorBuilder: (context, index) => SizedBox(height: 10),
     );

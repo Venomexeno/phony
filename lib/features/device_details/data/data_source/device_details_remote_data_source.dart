@@ -1,10 +1,10 @@
 import '../../../../core/models/detailed_device.dart';
-import '../../../../core/models/device.dart';
+import '../../../../core/models/device_interface.dart';
 import '../../../../core/network/api_constants.dart';
 import '../../../../core/network/api_helper.dart';
 
 abstract class DeviceDetailsRemoteDataSource {
-  Future<DetailedDevice> getDeviceDetails(Device device);
+  Future<DetailedDevice> getDeviceDetails(DeviceInterface device);
 }
 
 class DeviceDetailsRemoteDataSourceImpl implements DeviceDetailsRemoteDataSource {
@@ -13,7 +13,7 @@ class DeviceDetailsRemoteDataSourceImpl implements DeviceDetailsRemoteDataSource
   DeviceDetailsRemoteDataSourceImpl(this._apiHelper);
 
   @override
-  Future<DetailedDevice> getDeviceDetails(Device device) async {
+  Future<DetailedDevice> getDeviceDetails(DeviceInterface device) async {
     final response = await _apiHelper.get<Map<String, dynamic>>(
       endPoint: "${ApiK.deviceDetails}/${device.id}",
     );

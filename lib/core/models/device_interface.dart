@@ -11,6 +11,12 @@ abstract class DeviceInterface extends Equatable {
     required this.image,
   });
 
+  Map<String, dynamic> get toMap => {
+    'id': id,
+    'name': name,
+    'image': image,
+  };
+
   @override
   List<Object> get props => [
     id,

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/models/device.dart';
+import '../../../../core/models/device_interface.dart';
 import '../../../../core/skeletons/custom_skeletonizer.dart';
 import '../../../../core/skeletons/skeletons.dart';
 import '../../controllers/get_device_details_cubit/get_device_details_cubit.dart';
+import '../widgets/device_details_app_bar.dart';
 import '../widgets/device_details_screen_body.dart';
 import '../widgets/get_device_details_bloc_builder.dart';
 
@@ -13,11 +14,12 @@ class DeviceDetailsScreen extends StatelessWidget {
     required this.device,
   });
 
-  final Device device;
+  final DeviceInterface device;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: DeviceDetailsAppBar(),
       body: GetDeviceDetailsBlocBuilder(
         device: device,
         builder: (state) {

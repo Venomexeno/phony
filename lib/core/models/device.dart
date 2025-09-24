@@ -1,3 +1,4 @@
+import 'detailed_device.dart';
 import 'device_interface.dart';
 
 class Device extends DeviceInterface {
@@ -9,6 +10,10 @@ class Device extends DeviceInterface {
     required super.image,
     required this.description,
   });
+
+  bool get isDetailedDevice => this is DetailedDevice;
+
+  DetailedDevice get asDetailedDevice => this as DetailedDevice;
 
   factory Device.fromMap(Map<String, dynamic> map) {
     return Device(

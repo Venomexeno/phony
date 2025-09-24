@@ -2,7 +2,7 @@
 import '../../../../core/di/cubit/custom_cubit.dart';
 import '../../../../core/error/failure.dart';
 import '../../../../core/models/detailed_device.dart';
-import '../../../../core/models/device.dart';
+import '../../../../core/models/device_interface.dart';
 import '../../data/repo/device_details_repo.dart';
 
 part 'get_device_details_state.dart';
@@ -12,7 +12,7 @@ class GetDeviceDetailsCubit extends CustomCubit<GetDeviceDetailsState> {
 
   final DeviceDetailsRepo _deviceDetailsRepo;
 
-  Future<void> getDeviceDetails(Device device) async {
+  Future<void> getDeviceDetails(DeviceInterface device) async {
     emit(GetDeviceDetailsLoading());
     final deviceDetailsOrFailure = await _deviceDetailsRepo.getDeviceDetails(device);
     deviceDetailsOrFailure.fold(
