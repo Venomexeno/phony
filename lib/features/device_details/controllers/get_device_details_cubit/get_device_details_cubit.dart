@@ -13,6 +13,12 @@ class GetDeviceDetailsCubit extends CustomCubit<GetDeviceDetailsState> {
   final DeviceDetailsRepo _deviceDetailsRepo;
 
   Future<void> getDeviceDetails(DeviceInterface device) async {
+
+    if (device.isDetailedDevice) {
+      _success(device.asDetailedDevice);
+      return;
+    }
+
     emit(GetDeviceDetailsLoading());
     final deviceDetailsOrFailure = await _deviceDetailsRepo.getDeviceDetails(device);
     deviceDetailsOrFailure.fold(

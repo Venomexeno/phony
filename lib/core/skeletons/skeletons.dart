@@ -57,7 +57,8 @@ List<Device> searchDevicesSkeletonData() {
       id: '',
       name: 'Apple...',
       image: '',
-      description: 'This is a description With Long Text And Many Words Try To Fit In This Description And Many Words',
+      description:
+          'This is a description With Long Text And Many Words Try To Fit In This Description And Many Words',
     ),
   );
 }
@@ -79,10 +80,11 @@ DetailedDevice deviceDetailsSkeletonData() {
       (index) => DeviceDetailedSpec(
         category: 'Category',
         specifications: List.generate(
-          3,
+          5,
           (index) => DeviceQuickSpec(
             title: 'Category',
-            value: 'Value',
+            value:
+                'This is a description With Long Text And Many Words Try To Fit In This Description',
           ),
         ),
       ),
