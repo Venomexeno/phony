@@ -8,7 +8,7 @@ class CustomSkeletonizer extends StatelessWidget {
     required this.enabled,
     required this.child,
     this.ignoreContainers = false,
-    this.isSliver = false,
+    required this.isSliver,
   });
   final bool enabled;
   final Widget child;
@@ -48,13 +48,7 @@ class CustomSkeletonizer extends StatelessWidget {
         enabled: enabled,
         ignoreContainers: ignoreContainers,
         containersColor: AppColors.grey500,
-        effect: ShimmerEffect(
-          baseColor: AppColors.grey200,
-          highlightColor: AppColors.grey400,
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          duration: const Duration(seconds: 3),
-        ),
+        effect: _effect,
         child: child,
       );
     }
@@ -63,14 +57,16 @@ class CustomSkeletonizer extends StatelessWidget {
       enableSwitchAnimation: true,
       ignoreContainers: ignoreContainers,
       containersColor: AppColors.grey500,
-      effect: ShimmerEffect(
-        baseColor: AppColors.grey200,
-        highlightColor: AppColors.grey400,
-        begin: Alignment.centerLeft,
-        end: Alignment.centerRight,
-        duration: const Duration(seconds: 3),
-      ),
+      effect: _effect,
       child: child,
     );
   }
+
+  PaintingEffect get _effect => ShimmerEffect(
+    baseColor: AppColors.grey200,
+    highlightColor: AppColors.grey400,
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    duration: const Duration(seconds: 3),
+  );
 }

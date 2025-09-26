@@ -7,6 +7,7 @@ class DeviceDetailsAppBar extends AppBar {
     super.key,
   }) : super(
          title: Text('Device Details'),
+         centerTitle: true,
          actions: [
           DeviceDetailsFavoriteButton(),
          ],

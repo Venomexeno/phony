@@ -20,12 +20,15 @@ class DeviceImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomCachedNetworkImage(
-      fit: fit,
-      borderRadius: borderRadius,
-      imageUrl: device.image,
-      width: width,
-      height: height,
+    return Hero(
+      tag: device.id,
+      child: CustomCachedNetworkImage(
+        fit: fit,
+        borderRadius: borderRadius,
+        imageUrl: device.image,
+        width: width,
+        height: height,
+      ),
     );
   }
 }
