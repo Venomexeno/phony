@@ -20,7 +20,10 @@ List<MainLayoutItem> _mainLayoutItems(int index) => [
   MainLayoutItem(
     title: 'Compare',
     icon: Icons.compare_arrows_rounded,
-    screen: CompareScreen(),
+    screen: BlocProvider<CompareDevicesCubit>(
+      create: (context) => sl<CompareDevicesCubit>(),
+      child: CompareScreen(),
+    ),
   ),
 
   MainLayoutItem(

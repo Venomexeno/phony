@@ -18,6 +18,8 @@ class DeviceDetailedSpec extends Equatable {
     );
   }
 
+  
+
   Map<String, dynamic> toMap() {
     return {
       'category': category,

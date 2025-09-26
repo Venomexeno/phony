@@ -30,13 +30,16 @@ class DetailedDevice extends DeviceInterface {
       .take(4)
       .join(' ● ');
 
+
+  List<DeviceQuickSpec> get detailedSpecsList => detailedSpecs.expand((spec) => spec.specifications).toList();
+
   @override
   Map<String, dynamic> get toMap => {
     'id': id,
     'name': name,
     'img': image,
-    'quickSpecs': quickSpecs.map((spec) => spec.toMap()).toList(),
-    'detailedSpecs': detailedSpecs.map((spec) => spec.toMap()).toList(),
+    'quickSpec': quickSpecs.map((spec) => spec.toMap()).toList(),
+    'detailSpec': detailedSpecs.map((spec) => spec.toMap()).toList(),
   };
 
   @override

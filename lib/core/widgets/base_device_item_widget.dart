@@ -12,15 +12,17 @@ class BaseDeviceItemWidget extends StatelessWidget {
     super.key,
     required this.device,
     this.trailing,
+    this.onTap,
   });
 
   final DeviceInterface device;
   final Widget? trailing;
+  final void Function(DeviceInterface device)? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _onTap(context),
+      onTap: () =>  _onTap(context),
       child: Container(
         padding: EdgeInsets.all(10),
         decoration: _boxDecoration,
@@ -45,6 +47,10 @@ class BaseDeviceItemWidget extends StatelessWidget {
   );
 
   void _onTap(BuildContext context) {
+    if (onTap != null) {
+      onTap!(device);
+      return;
+    }
     context.navigateToDeviceDetailsScreen(device: device);
   }
 }

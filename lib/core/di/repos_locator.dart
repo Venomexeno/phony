@@ -8,4 +8,6 @@ void _initRepos() {
   sl.registerFactory<BrandDevicesRepo>(() => BrandDevicesRepoImpl(sl<BrandDevicesRemoteDataSource>()));
 
   sl.registerFactory<DeviceDetailsRepo>(() => DeviceDetailsRepoImpl(sl<DeviceDetailsRemoteDataSource>()));
+
+  sl.registerFactory<CompareRepo>(() => CompareRepoImpl(sl<CompareRemoteDataSource>()));
 }

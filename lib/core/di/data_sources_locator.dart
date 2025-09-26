@@ -8,4 +8,6 @@ void _initDataSources() {
   sl.registerFactory<BrandDevicesRemoteDataSource>(() => BrandDevicesRemoteDataSourceImpl(sl<ApiHelper>()));
 
   sl.registerFactory<DeviceDetailsRemoteDataSource>(() => DeviceDetailsRemoteDataSourceImpl(sl<ApiHelper>()));
+
+  sl.registerFactory<CompareRemoteDataSource>(() => CompareRemoteDataSourceImpl(sl<ApiHelper>()));
 }

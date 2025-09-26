@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/models/device_interface.dart';
 import '../../../../core/skeletons/custom_skeletonizer.dart';
 import '../../../../core/skeletons/skeletons.dart';
 import '../../../../core/widgets/devices_list_view.dart';
@@ -8,9 +9,10 @@ import '../../../../core/widgets/exception_widget.dart';
 import '../../controllers/search_device_cubit/search_device_cubit.dart';
 
 class GetSearchDevicesBlocBuilder extends StatelessWidget {
-  const GetSearchDevicesBlocBuilder({super.key, required this.controller});
+  const GetSearchDevicesBlocBuilder({super.key, required this.controller, this.onSelectDevice,});
 
   final TextEditingController controller;
+  final void Function(DeviceInterface device)? onSelectDevice;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class GetSearchDevicesBlocBuilder extends StatelessWidget {
           return CustomSkeletonizer(
             enabled: !isSuccess,
             child: DevicesListView(
+              onSelectDevice: onSelectDevice,
               devices: isSuccess ? state.devices : searchDevicesSkeletonData(),
             ),
           );

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/color_opacity_extension.dart';
-import '../../../../core/models/device.dart';
+import '../../../../core/models/device_interface.dart';
+import '../../../../core/routing/navigation_methods_extension.dart';
+import '../../../../core/routing/navigations/search_screen_navigation.dart';
 import '../../../../core/style/app_box_decorations.dart';
 import '../../../../core/style/app_colors.dart';
 import '../../../../core/style/app_text_styles.dart';
@@ -12,30 +14,50 @@ class CompareAddDeviceButton extends StatelessWidget {
   const CompareAddDeviceButton({
     super.key,
     this.device,
+    required this.onSelectDevice,
   });
 
-  final Device? device;
+  final DeviceInterface? device;
+
+  final void Function(DeviceInterface device) onSelectDevice;
 
   @override
   Widget build(BuildContext context) {
-    if (device != null) {
-      return DeviceImageWidget(
-        hasHero: false,
-        device: device!,
-      );
-    }
-    return Container(
-      alignment: Alignment.center,
-      decoration: _decoration,
-      height: MediaQuery.of(context).size.height * 0.3,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        spacing: 10,
-        children: [
-          _AddButton(),
-          Text("Add Device", style: _textStyle),
-        ],
+    return GestureDetector(
+      onTap: () => _onTap(context),
+      child: Container(
+        alignment: Alignment.center,
+        decoration: _decoration,
+        height: MediaQuery.of(context).size.height * 0.3,
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 700),
+          child: device == null
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 10,
+                  children: [
+                    _AddButton(),
+                    Text("Add Device", style: _textStyle),
+                  ],
+                )
+              : DeviceImageWidget(
+                  hasHero: false,
+                  fit: BoxFit.contain,
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  width: double.infinity,
+                  device: device!,
+                ),
+        ),
       ),
+    );
+  }
+
+  void _onTap(BuildContext context) {
+    context.navigateToSearchScreen(
+      onSelectDevice: (device) {
+        onSelectDevice(device);
+        context.pop();
+      },
     );
   }
 
@@ -43,7 +65,11 @@ class CompareAddDeviceButton extends StatelessWidget {
 
   BoxDecoration get _decoration => AppBoxDecorations.solid(
     withShadow: false,
-    color: AppThemeCubit.isDark ? AppColors.color1a242e : AppColors.colorf6f7f8,
+    color: device == null
+        ? AppThemeCubit.isDark
+              ? AppColors.color1a242e
+              : AppColors.colorf6f7f8
+        : AppColors.transparent,
   );
 }
 

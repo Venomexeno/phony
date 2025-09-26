@@ -1,3 +1,4 @@
+import '../../features/compare/data/models/compare_result.dart';
 import '../../features/home/data/models/brand.dart';
 import '../../features/home/data/models/deal.dart';
 import '../../features/home/data/models/hot_deal_device.dart';
@@ -89,5 +90,13 @@ DetailedDevice deviceDetailsSkeletonData() {
         ),
       ),
     ),
+  );
+}
+
+
+CompareResult compareResultSkeletonData() {
+  return CompareResult(
+    firstDevice: deviceDetailsSkeletonData(),
+    secondDevice: deviceDetailsSkeletonData(),
   );
 }

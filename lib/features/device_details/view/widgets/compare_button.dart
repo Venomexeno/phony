@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/models/detailed_device.dart';
+import '../../../../core/routing/navigations/compare_devices_screen_navigation.dart';
 import '../../../../core/style/app_colors.dart';
 
 class CompareButton extends StatelessWidget {
@@ -26,7 +27,7 @@ class CompareButton extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          print(detailedDevice.id);
+          context.navigateToCompareDevicesScreen(device: detailedDevice);
         },
         child: Row(
           spacing: 8,
