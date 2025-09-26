@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_lazy_indexed_stack/flutter_lazy_indexed_stack.dart';
 
 import '../../../dependencies/app_theme_cubit/app_theme_cubit.dart';
+import '../../../features/compare/view/screens/compare_screen.dart';
 import '../../../features/favorites/view/screens/favorites_screen.dart';
 import '../../../features/home/controllers/get_hot_deals_cubit/get_hot_deals_cubit.dart';
 import '../../../features/home/controllers/get_top_devices_cubit/get_top_devices_cubit.dart';
@@ -17,6 +18,7 @@ import 'bottom_nav_bar_painter.dart';
 import 'nav_bar_item_widget.dart';
 import 'nav_dot.dart';
 
+part 'main_layout_items.dart';
 part 'main_layout_nav_bar.dart';
 
 class MainLayoutWidget extends StatefulWidget {
@@ -29,47 +31,6 @@ class MainLayoutWidget extends StatefulWidget {
 class _MainLayoutWidgetState extends State<MainLayoutWidget> {
   int index = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  late List<MainLayoutItem> _mainLayoutItems;
-
-  @override
-  void initState() {
-    super.initState();
-    _mainLayoutItems = [
-      MainLayoutItem(
-        title: 'Home',
-        icon: Icons.home_rounded,
-        screen: MultiBlocProvider(
-          providers: [
-            BlocProvider<GetHotDealsCubit>(
-              create: (context) => sl<GetHotDealsCubit>()..getHotDealDevices(),
-            ),
-            BlocProvider<GetTopDevicesCubit>(
-              create: (context) => sl<GetTopDevicesCubit>()..getTopDevices(),
-            ),
-          ],
-          child: HeroMode(enabled: index == 0, child: HomeScreen()),
-        ),
-      ),
-
-      const MainLayoutItem(
-        title: 'Compare',
-        icon: Icons.compare_arrows_rounded,
-        screen: Placeholder(),
-      ),
-
-      MainLayoutItem(
-        title: 'Favorites',
-        icon: Icons.favorite_rounded,
-        screen: HeroMode(enabled: index == 2, child: FavoritesScreen()),
-      ),
-
-      const MainLayoutItem(
-        title: 'Settings',
-        icon: Icons.settings_rounded,
-        screen: SettingsScreen(),
-      ),
-    ];
-  }
 
   void _onBottomNavigationBarTap(int index) {
     this.index = index;
@@ -97,15 +58,13 @@ class _MainLayoutWidgetState extends State<MainLayoutWidget> {
         child: Scaffold(
           extendBody: true,
           appBar: AppBar(
-            title: Text(_mainLayoutItems[index].title),
+            title: Text(_mainLayoutItems(index)[index].title),
           ),
           key: _scaffoldKey,
-          bottomNavigationBar: _MainLayoutNavBar(
-            state: this,
-          ),
+          bottomNavigationBar: _MainLayoutNavBar(state: this),
           body: LazyIndexedStack(
             index: index,
-            children: _mainLayoutItems.map((item) => item.screen).toList(),
+            children: _mainLayoutItems(index).map((item) => item.screen).toList(),
           ),
         ),
       ),

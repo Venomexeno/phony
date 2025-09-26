@@ -10,6 +10,7 @@ class DeviceImageWidget extends StatelessWidget {
     this.height = 100,
     this.borderRadius = const BorderRadius.all(Radius.circular(10)),
     this.fit = BoxFit.cover,
+    this.hasHero = true,
   });
 
   final DeviceInterface device;
@@ -17,18 +18,28 @@ class DeviceImageWidget extends StatelessWidget {
   final double height;
   final BorderRadiusGeometry borderRadius;
   final BoxFit fit;
+  final bool hasHero;
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: device.id,
-      child: CustomCachedNetworkImage(
-        fit: fit,
-        borderRadius: borderRadius,
-        imageUrl: device.image,
-        width: width,
-        height: height,
-      ),
+    if (hasHero) {
+      return Hero(
+        tag: device.id,
+        child: CustomCachedNetworkImage(
+          fit: fit,
+          borderRadius: borderRadius,
+          imageUrl: device.image,
+          width: width,
+          height: height,
+        ),
+      );
+    }
+    return CustomCachedNetworkImage(
+      fit: fit,
+      borderRadius: borderRadius,
+      imageUrl: device.image,
+      width: width,
+      height: height,
     );
   }
 }
