@@ -50,7 +50,7 @@ class _MainLayoutNavBarState extends State<_MainLayoutNavBar> with SingleTickerP
     return LayoutBuilder(
       builder: (context, constraints) {
         final double width = constraints.maxWidth;
-        final double itemWidth = width / _mainLayoutItems.length;
+        final double itemWidth = width / widget.state._mainLayoutItems.length;
         final double targetCenterX = (widget.state.index + 0.5) * itemWidth;
 
         if (_targetCenterX != targetCenterX) {
@@ -74,7 +74,7 @@ class _MainLayoutNavBarState extends State<_MainLayoutNavBar> with SingleTickerP
                   child: Padding(
                     padding: _padding(dotSize),
                     child: Row(
-                      children: _mainLayoutItems.asMap().entries.map((item) {
+                      children: widget.state._mainLayoutItems.asMap().entries.map((item) {
                         return NavBarItemWidget(
                           item: item.value,
                           isSelected: widget.state.index == item.key,

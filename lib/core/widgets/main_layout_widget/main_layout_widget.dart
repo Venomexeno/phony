@@ -17,7 +17,6 @@ import 'bottom_nav_bar_painter.dart';
 import 'nav_bar_item_widget.dart';
 import 'nav_dot.dart';
 
-part 'main_layout_items.dart';
 part 'main_layout_nav_bar.dart';
 
 class MainLayoutWidget extends StatefulWidget {
@@ -30,10 +29,46 @@ class MainLayoutWidget extends StatefulWidget {
 class _MainLayoutWidgetState extends State<MainLayoutWidget> {
   int index = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  late List<MainLayoutItem> _mainLayoutItems;
 
   @override
   void initState() {
     super.initState();
+    _mainLayoutItems = [
+      MainLayoutItem(
+        title: 'Home',
+        icon: Icons.home_rounded,
+        screen: MultiBlocProvider(
+          providers: [
+            BlocProvider<GetHotDealsCubit>(
+              create: (context) => sl<GetHotDealsCubit>()..getHotDealDevices(),
+            ),
+            BlocProvider<GetTopDevicesCubit>(
+              create: (context) => sl<GetTopDevicesCubit>()..getTopDevices(),
+            ),
+          ],
+          child: HeroMode(enabled: index == 0, child: HomeScreen()),
+        ),
+      ),
+
+      const MainLayoutItem(
+        title: 'Compare',
+        icon: Icons.compare_arrows_rounded,
+        screen: Placeholder(),
+      ),
+
+      MainLayoutItem(
+        title: 'Favorites',
+        icon: Icons.favorite_rounded,
+        screen: HeroMode(enabled: index == 2, child: FavoritesScreen()),
+      ),
+
+      const MainLayoutItem(
+        title: 'Settings',
+        icon: Icons.settings_rounded,
+        screen: SettingsScreen(),
+      ),
+    ];
   }
 
   void _onBottomNavigationBarTap(int index) {
@@ -65,7 +100,9 @@ class _MainLayoutWidgetState extends State<MainLayoutWidget> {
             title: Text(_mainLayoutItems[index].title),
           ),
           key: _scaffoldKey,
-          bottomNavigationBar: _MainLayoutNavBar(state: this),
+          bottomNavigationBar: _MainLayoutNavBar(
+            state: this,
+          ),
           body: LazyIndexedStack(
             index: index,
             children: _mainLayoutItems.map((item) => item.screen).toList(),
