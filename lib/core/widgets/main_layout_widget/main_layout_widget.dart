@@ -31,7 +31,6 @@ class MainLayoutWidget extends StatefulWidget {
 
 class _MainLayoutWidgetState extends State<MainLayoutWidget> {
   int index = 0;
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void _onBottomNavigationBarTap(int index) {
     this.index = index;
@@ -61,7 +60,6 @@ class _MainLayoutWidgetState extends State<MainLayoutWidget> {
           appBar: AppBar(
             title: Text(_mainLayoutItems(index)[index].title),
           ),
-          key: _scaffoldKey,
           bottomNavigationBar: _MainLayoutNavBar(state: this),
           body: LazyIndexedStack(
             index: index,

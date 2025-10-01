@@ -2,7 +2,6 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import '../../../../core/di/cubit/custom_cubit.dart';
 import '../../../../core/models/detailed_device.dart';
-import '../../../../core/models/device.dart';
 
 /// ال cubit ده وظيفته انه يدير ال favorite devices
 /// ومستخدم ال hydrated mixin عشان احفظ ال state بتاعته
@@ -26,10 +25,6 @@ class FavoritesCubit extends CustomCubit<Set<DetailedDevice>> with HydratedMixin
   void removeFavorite(DetailedDevice device) {
     final newState = {...state}..remove(device);
     emit(newState);
-  }
-
-  bool isFavorite(Device device) {
-    return state.contains(device); /// هنا بستخدم ال contains اللي هي O(1) عشان اشوف لو الموبايل في المفضلة ولا لا
   }
 
   @override

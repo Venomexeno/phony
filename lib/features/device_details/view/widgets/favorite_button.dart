@@ -14,7 +14,7 @@ class FavoriteButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FavoritesCubit, Set<DetailedDevice>>(
       builder: (context, state) {
-        final bool isFavorite = state.contains(device);
+        final bool isFavorite = state.contains(device); /// هنا بستخدم ال contains اللي هي O(1) عشان اشوف لو الموبايل في المفضلة ولا لا
         return IconButton(
           onPressed: () {
             if (isFavorite) {
