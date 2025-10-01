@@ -19,8 +19,6 @@
 الـ API اللي المشروع بيعتمد عليه موجود هنا (عملتله fork):
 `https://github.com/Venomexeno/gsmarena-api-again`
 
-Preview / demo داخل الريبو: `https://github.com/Venomexeno/phony` (فيه فيديو توضيحي).
-
 https://github.com/user-attachments/assets/dcba9ea6-cb8d-44fe-b3d7-ecc0af3ca5d2
 
 
