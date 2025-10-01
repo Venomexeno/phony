@@ -20,7 +20,9 @@
 `https://github.com/Venomexeno/gsmarena-api-again`
 
 Preview / demo داخل الريبو: `https://github.com/Venomexeno/phony` (فيه فيديو توضيحي).
-[شوف الفيديو](https://github.com/Venomexeno/phony/tree/main/assets/videos/demo.mp4)
+
+https://github.com/user-attachments/assets/dcba9ea6-cb8d-44fe-b3d7-ecc0af3ca5d2
+
 
 ---
 
