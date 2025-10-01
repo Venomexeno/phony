@@ -19,10 +19,12 @@ class DetailedDevice extends DeviceInterface {
       id: map['id'],
       name: map['name'],
       image: map['img'],
-      quickSpecs: (map['quickSpec'] as List).map((spec) => DeviceQuickSpec.fromMap(spec))
-                  .toList(),
-      detailedSpecs: (map['detailSpec'] as List).map((spec) => DeviceDetailedSpec.fromMap(spec))
-                     .toList(),
+      quickSpecs: (map['quickSpec'] as List)
+          .map((spec) => DeviceQuickSpec.fromMap(spec))
+          .toList(),
+      detailedSpecs: (map['detailSpec'] as List)
+          .map((spec) => DeviceDetailedSpec.fromMap(spec))
+          .toList(),
     );
   }
 
@@ -32,12 +34,12 @@ class DetailedDevice extends DeviceInterface {
       .take(4)
       .join(' ● ');
 
-
-  List<DeviceQuickSpec> get detailedSpecsList => detailedSpecs.expand((spec) => spec.specifications)
-                                                 .toList();
+  List<DeviceQuickSpec> get detailedSpecsList {
+    return detailedSpecs.expand((spec) => spec.specifications).toList();
+  }
 
   @override
-  Map<String, dynamic> get toMap => {
+  Map<String, dynamic> get toMap => { /// هنا عملت override عشان اضيف ال quick specs وال detailed specs واضيفها في ال favorite
     'id': id,
     'name': name,
     'img': image,

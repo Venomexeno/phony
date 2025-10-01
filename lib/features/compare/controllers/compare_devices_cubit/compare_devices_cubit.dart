@@ -12,18 +12,18 @@ class CompareDevicesCubit extends CustomCubit<CompareDevicesState> {
 
   final CompareRepo _compareRepo;
 
-  final Map<String, DetailedDevice> _cachedDevices = {};
+  final Map<String, DetailedDevice> _cachedDevices = {}; /// هنا بحفظ ال detailed devices اللي جتلي من ال api عشان لو اليوزر عمل compare لنفس الموبايل تاني متعملش request جديد
 
   Future<void> compareDevices(
     DeviceInterface firstDevice,
     DeviceInterface secondDevice,
   ) async {
-     if (firstDevice.isDetailedDevice) {
-      _cachedDevices[firstDevice.id] = firstDevice.asDetailedDevice;
+     if (firstDevice.isDetailedDevice) { /// لو الموبايل الاول detailed device يعني عمل compare من صفحة ال device details
+      _cachedDevices[firstDevice.id] = firstDevice.asDetailedDevice; /// بحفظه في ال cache
     }
 
-    final first = _cachedDevices[firstDevice.id] ?? firstDevice;
-    final second = _cachedDevices[secondDevice.id] ?? secondDevice;
+    final first = _cachedDevices[firstDevice.id] ?? firstDevice; /// باخد الموبايل الاول من ال cache لو موجود لو مش موجود باخده من ال argument
+    final second = _cachedDevices[secondDevice.id] ?? secondDevice; /// باخد الموبايل التاني من ال cache لو موجود لو مش موجود باخده من ال argument
 
    
 
@@ -45,8 +45,8 @@ class CompareDevicesCubit extends CustomCubit<CompareDevicesState> {
   }
 
   void _success(CompareResult compareResult) {
-    _cachedDevices[compareResult.firstDevice.id] = compareResult.firstDevice;
-    _cachedDevices[compareResult.secondDevice.id] = compareResult.secondDevice;
+    _cachedDevices[compareResult.firstDevice.id] = compareResult.firstDevice; /// بحفظ الموبايلات اللي جتلي من ال api في ال cache
+    _cachedDevices[compareResult.secondDevice.id] = compareResult.secondDevice; /// بحفظ الموبايلات اللي جتلي من ال api في ال cache
 
     emit(CompareDevicesSuccess(compareResult: compareResult));
   }

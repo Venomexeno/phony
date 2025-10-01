@@ -5,6 +5,10 @@ import '../../dependencies/app_theme_cubit/app_theme_cubit.dart';
 import 'app_colors.dart';
 
 abstract class AppTextStyles {
+  /// هنا عملت كل ال text styles اللي انا ممكن استخدمها في الابلكيشن
+  /// بس خليتهم كلهم get طب ليه وانا ممكن اخليها final 
+  /// عشان كل مرة اليوزر يغير ال theme من light ل dark او العكس
+  /// ال text color بيتغير ف لو خليتهم final هيبقى لونهم ثابت
   static TextStyle get bold24 => _textStyle(
     fontSize: 24,
     fontWeight: FontWeight.w700,

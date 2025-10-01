@@ -13,7 +13,7 @@ class GetBrandsCubit extends CustomCubit<GetBrandsState> {
    final List<Brand> _brands = [];
 
   Future<void> getBrands() async {
-    if (state is GetBrandsSuccess) return;
+    if (state is GetBrandsSuccess) return; // لو ال state الحالية هي GetBrandsSuccess بعمل return عشان متعملش request تاني
 
     emit(GetBrandsLoading());
 

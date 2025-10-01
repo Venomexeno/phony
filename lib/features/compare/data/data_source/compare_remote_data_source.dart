@@ -38,8 +38,8 @@ class CompareRemoteDataSourceImpl implements CompareRemoteDataSource {
     );
 
     return DetailedDevice.fromMap({
-      ...response,
-      ...device.toMap,
+      ...response, /// هنا الريسبونس بيجبلي داتا الموبايل من غير ال id وال name وال image فانا بدمجهم مع بعض
+      ...device.toMap, /// بحيث ببعتله الريسبونس بتاعي ف الماب وبعدين بدمج معاه الماب بتاع ال device اللي انا بعته عشان يبقى عندي كل حاجة
     });
   }
 }

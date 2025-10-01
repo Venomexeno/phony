@@ -10,21 +10,21 @@ class SearchDeviceCubit extends CustomCubit<SearchDeviceState> {
 
   final SearchRepo _searchDeviceRepo;
 
-  final Map<String, List<Device>> _results = {};
+  final Map<String, List<Device>> _results = {}; /// هنا بحفظ ال results عشان لو اليوزر عمل نفس ال search تاني متعملش request جديد
 
-  final Map<String, bool?> _currentlyRequesting = {};
+  final Map<String, bool?> _currentlyRequesting = {}; /// هنا بحفظ ال requests اللي شغالة عشان لو اليوزر عمل نفس ال search تاني متعملش request جديد
 
-  String _currentRequest = '';
+  String _currentRequest = ''; /// هنا بحفظ اخر request عشان لو اليوزر عمل search جديد قبل ما يخلص ال request القديم متعملش emit لل state بتاع ال request القديم
 
   Future<void> searchDevices(String query) async {
     if (query.isEmpty) return;
 
-    _currentRequest = query;
+    _currentRequest = query; /// بحفظ اخر request
 
-    if (_results[query] != null) {
+    if (_results[query] != null) { /// لو ال results موجودة قبل كده
       _currentlyRequesting[query] = null;
       _success(_results[query]!);
-      return;
+      return; /// بخرج من الفنكشن عشان متعملش request جديد
     }
 
     emit(SearchDeviceLoading());
@@ -32,9 +32,9 @@ class SearchDeviceCubit extends CustomCubit<SearchDeviceState> {
     searchDevicesOrFailure.fold(
       _failure,
       (devices) {
-        _results[query] = devices;
+        _results[query] = devices; /// بحفظ ال results
 
-        if (query != _currentRequest) return;
+        if (query != _currentRequest) return; /// لو ال request الحالي مش اخر request اتعمل متعملش emit لل state
 
         _success(devices);
       },

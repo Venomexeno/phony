@@ -17,9 +17,11 @@ class AppThemeCubit extends CustomCubit<bool> with HydratedMixin {
     _isDark = state;
   }
 
+  /// هنا بستخدم static variable عشان اقدر اوصل لل theme من غير ما اعمل instance من ال cubit ولا احتاج context
+  /// وده بيساعدني في ال theming بتاع الابلكيشن
   static late bool _isDark;
 
-  static bool get isDark => _isDark;
+  static bool get isDark => _isDark; /// دي ميثود بترجعلي ال theme الحالي
 
   @override
   bool? fromJson(Map<String, dynamic> json) {

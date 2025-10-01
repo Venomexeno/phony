@@ -35,7 +35,7 @@ class _SearchScreenBodyState extends State<SearchScreenBody> {
   }
 
   void _onControllerChanged() {
-    context.read<SearchDeviceCubit>().searchDevices(_controller.text);
+    context.read<SearchDeviceCubit>().searchDevices(_controller.text); /// هنا بعمل search لكل مرة اليوزر يكتب حاجة في ال search bar
   }
 
   @override
