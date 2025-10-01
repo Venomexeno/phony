@@ -20,6 +20,7 @@
 `https://github.com/Venomexeno/gsmarena-api-again`
 
 Preview / demo داخل الريبو: `https://github.com/Venomexeno/phony` (فيه فيديو توضيحي).
+[شوف الفيديو](https://github.com/Venomexeno/phony/tree/main/assets/videos/demo.mp4)
 
 ---
 
@@ -85,12 +86,6 @@ flutter run -d chrome
 
 flutter run -d <device-id>
 
-````
-
-5. **لو عايز تبني نسخة ويب**
-```bash
-flutter build web
-# بعدين ممكن تستخدم firebase hosting أو أي سيرفر ثابت لرفع المجلد build/web
 ````
 
 ---
