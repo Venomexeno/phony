@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'navigation_type.dart';
 
+/// ال extension ده بضيف ميثودز لل navigation عشان استخدمها في اي مكان في الابلكيشن
+/// بدل ما اكتب الكود بتاع ال Navigator.of(context).push... في كل مكان
 extension NavigationMethodsExtension on BuildContext {
 
   void navigate({

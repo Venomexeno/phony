@@ -1,13 +1,13 @@
 part of 'service_locator.dart';
 
 void _initDataSources() {
-  sl.registerFactory<HomeRemoteDataSource>(() => HomeRemoteDataSourceImpl(sl<ApiHelper>()));
+  sl.registerLazySingleton<HomeRemoteDataSource>(() => HomeRemoteDataSourceImpl(sl<ApiHelper>()));
 
-  sl.registerFactory<SearchRemoteDataSource>(() => SearchRemoteDataSourceImpl(sl<ApiHelper>()));
+  sl.registerLazySingleton<SearchRemoteDataSource>(() => SearchRemoteDataSourceImpl(sl<ApiHelper>()));
 
-  sl.registerFactory<BrandDevicesRemoteDataSource>(() => BrandDevicesRemoteDataSourceImpl(sl<ApiHelper>()));
+  sl.registerLazySingleton<BrandDevicesRemoteDataSource>(() => BrandDevicesRemoteDataSourceImpl(sl<ApiHelper>()));
 
-  sl.registerFactory<DeviceDetailsRemoteDataSource>(() => DeviceDetailsRemoteDataSourceImpl(sl<ApiHelper>()));
+  sl.registerLazySingleton<DeviceDetailsRemoteDataSource>(() => DeviceDetailsRemoteDataSourceImpl(sl<ApiHelper>()));
 
-  sl.registerFactory<CompareRemoteDataSource>(() => CompareRemoteDataSourceImpl(sl<ApiHelper>()));
+  sl.registerLazySingleton<CompareRemoteDataSource>(() => CompareRemoteDataSourceImpl(sl<ApiHelper>()));
 }

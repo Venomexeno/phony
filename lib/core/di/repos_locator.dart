@@ -1,13 +1,13 @@
 part of 'service_locator.dart';
 
 void _initRepos() {
-  sl.registerFactory<HomeRepo>(() => HomeRepoImpl(sl<HomeRemoteDataSource>()));
+  sl.registerLazySingleton<HomeRepo>(() => HomeRepoImpl(sl<HomeRemoteDataSource>()));
 
-  sl.registerFactory<SearchRepo>(() => SearchRepoImpl(sl<SearchRemoteDataSource>()));
+  sl.registerLazySingleton<SearchRepo>(() => SearchRepoImpl(sl<SearchRemoteDataSource>()));
 
-  sl.registerFactory<BrandDevicesRepo>(() => BrandDevicesRepoImpl(sl<BrandDevicesRemoteDataSource>()));
+  sl.registerLazySingleton<BrandDevicesRepo>(() => BrandDevicesRepoImpl(sl<BrandDevicesRemoteDataSource>()));
 
-  sl.registerFactory<DeviceDetailsRepo>(() => DeviceDetailsRepoImpl(sl<DeviceDetailsRemoteDataSource>()));
+  sl.registerLazySingleton<DeviceDetailsRepo>(() => DeviceDetailsRepoImpl(sl<DeviceDetailsRemoteDataSource>()));
 
-  sl.registerFactory<CompareRepo>(() => CompareRepoImpl(sl<CompareRemoteDataSource>()));
+  sl.registerLazySingleton<CompareRepo>(() => CompareRepoImpl(sl<CompareRemoteDataSource>()));
 }

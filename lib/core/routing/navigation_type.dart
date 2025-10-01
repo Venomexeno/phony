@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+
+/// ال class ده بيمثل نوع التنقل اللي انا عايزه اعمله في الابلكيشن
+/// زي مثلا push او pushReplacement او pushAndRemoveUntil
 abstract class NavigationType {
   const NavigationType();
 }

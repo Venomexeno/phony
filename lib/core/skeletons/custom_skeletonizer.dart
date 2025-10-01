@@ -4,7 +4,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../style/app_colors.dart';
 
 class CustomSkeletonizer extends StatelessWidget {
-  const CustomSkeletonizer._({
+  const CustomSkeletonizer._({ ///هنا خفيت ال constructor الاساسي عشان اجبر اي حد يستخدم الكونستراكتورز اللي تحت
     required this.enabled,
     required this.child,
     this.ignoreContainers = false,
@@ -14,6 +14,8 @@ class CustomSkeletonizer extends StatelessWidget {
   final Widget child;
   final bool ignoreContainers;
   final bool isSliver;
+
+  /// هنا عملت 2 كونستراكتور واحد للسليفر وواحده للويدجيت العاديه
 
   factory CustomSkeletonizer.sliver({
     required bool enabled,

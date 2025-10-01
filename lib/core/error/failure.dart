@@ -5,6 +5,7 @@ class Failure extends Equatable {
   const Failure({required this.message});
 
   factory Failure.serverFailure({required int? statusCode}) {
+    // هنا كونستراكتور بياخد الريسبونس كود وبناءا عليه بيرد ب نوع المشكلة
     String message = '';
     switch (statusCode) {
       case 400:

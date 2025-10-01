@@ -2,6 +2,11 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import '../../core/di/cubit/custom_cubit.dart';
 
+
+/// ال cubit ده وظيفته انه يدير ال theme بتاع الابلكيشن
+/// ومستخدم ال hydrated mixin عشان احفظ ال state بتاعته
+/// يعني لو اليوزر اختار ال dark theme مثلا وطلع من الابلكيشن
+/// ولما يرجع تاني الابلكيشن يفضل على ال dark theme
 class AppThemeCubit extends CustomCubit<bool> with HydratedMixin {
   AppThemeCubit() : super(false) {
     hydrate();

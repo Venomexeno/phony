@@ -2,12 +2,12 @@ import 'dart:async';
 
 abstract class NetworkConnectionHelper<T>{
 
-  Stream<T>? _connectionStram;
+  Stream<T>? _connectionStream;
 
   bool _isConnected =false;
 
   Future<bool> get isConnected async{
-    if(_connectionStram == null){
+    if(_connectionStream == null){
       _isConnected = await pingConnection();
       _openStream();
     }
@@ -16,8 +16,8 @@ abstract class NetworkConnectionHelper<T>{
   }
 
   void _openStream() {
-    _connectionStram = streamBuilder();
-    _connectionStram!.listen((T connectionIndicator){
+    _connectionStream = streamBuilder();
+    _connectionStream!.listen((T connectionIndicator){
       _isConnected = isConnectedBuilder(connectionIndicator);
     });
   }

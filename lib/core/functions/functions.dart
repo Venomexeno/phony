@@ -6,6 +6,7 @@ import '../di/service_locator.dart';
 import '../error/failure.dart';
 import '../helpers/network_connection_helper/network_connection_helper.dart';
 
+// دي فانكشن بيعمل ريكويست وبيدي ريسبونس يا فشل يا نجح بناءا عالنوع اللي بديهوله
 Future<Either<Failure, T>> tryAndCatchBlock<T>({
   bool withInternetConnectionCheck = true,
   String? failureMessage,
@@ -13,13 +14,15 @@ Future<Either<Failure, T>> tryAndCatchBlock<T>({
 }) async {
   failureMessage = "Please Try Again";
 
-  if (withInternetConnectionCheck && !await sl<NetworkConnectionHelper>().isConnected) {
+  if (withInternetConnectionCheck && !await sl<NetworkConnectionHelper>().isConnected) { // لو مفيش نت علي طول يقوله فشل بسبب النت
     return Left(Failure(message: "Check Your Network Connection"));
   }
 
+  // لو في نت يبدأ يجرب الريكويست
+
   try {
     return Right(await functionToExecute());
-  } on DioException catch (ex) {
+  } on DioException catch (ex) { // هنا بشوف نوع الايرور وبرجعه في ال كونسول عشان اشوفه
     return Left(Failure.serverFailure(statusCode: ex.response?.statusCode));
   } on Exception catch (ex, st) {
     FlutterError.dumpErrorToConsole(FlutterErrorDetails(exception: ex, stack: st));

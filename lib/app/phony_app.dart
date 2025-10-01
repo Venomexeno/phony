@@ -43,6 +43,8 @@ class PhonyApp extends StatelessWidget {
   }
 
   Widget _builder(context, child) {
+    // هنا بستخدم ال responsive framework عشان اعمل ابلكيشن ريسبونسيف
+    // وبستخدم ال breakpoints اللي انا معرفها تحت
     return ResponsiveBreakpoints.builder(
       breakpoints: _breakpoints,
       child: Builder(

@@ -1,7 +1,9 @@
-import 'detailed_device.dart';
 import 'device_interface.dart';
 
 class Device extends DeviceInterface {
+
+  /// هنا ب inherit
+  /// من الانترفيس وبزود الحاجات اللي عايزها
   final String description;
 
   const Device({
@@ -11,10 +13,6 @@ class Device extends DeviceInterface {
     required this.description,
   });
 
-  bool get isDetailedDevice => this is DetailedDevice;
-
-  DetailedDevice get asDetailedDevice => this as DetailedDevice;
-
   factory Device.fromMap(Map<String, dynamic> map) {
     return Device(
       id: map['id'],
@@ -23,11 +21,6 @@ class Device extends DeviceInterface {
       description: map['description'],
     );
   }
-
-  Map<String, dynamic> get toMap => {
-    'id': id,
-    'description': description,
-  };
 
   @override
   List<Object> get props => [

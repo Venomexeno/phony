@@ -26,26 +26,32 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<HotDealDevice>>> getHotDealDevices() async {
     return await tryAndCatchBlock(
-      functionToExecute: () async => await _homeRemoteDataSource.getHotDealDevices(),
+      functionToExecute: () async =>
+          await _homeRemoteDataSource.getHotDealDevices(),
     );
   }
 
   @override
   Future<Either<Failure, List<TopDevicesSection>>> getTopDevices() async {
     return await tryAndCatchBlock(
-      functionToExecute: () async => await _homeRemoteDataSource.getTopDevices(),
+      functionToExecute: () async =>
+          await _homeRemoteDataSource.getTopDevices(),
     );
   }
 
   @override
-  Future<Either<Failure, String>> getTopDeviceImage(TopDeviceItem device) async {
+  Future<Either<Failure, String>> getTopDeviceImage(
+    TopDeviceItem device,
+  ) async {
     return await tryAndCatchBlock(
-      functionToExecute: () async => await _homeRemoteDataSource.getTopDeviceImage(device),
+      functionToExecute: () async {
+        return await _homeRemoteDataSource.getTopDeviceImage(device);
+      },
     );
   }
-  
+
   @override
-  Future<Either<Failure, List<Brand>>> getBrands() async{
+  Future<Either<Failure, List<Brand>>> getBrands() async {
     return await tryAndCatchBlock(
       functionToExecute: () async => await _homeRemoteDataSource.getBrands(),
     );

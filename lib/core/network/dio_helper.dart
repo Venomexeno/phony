@@ -12,6 +12,8 @@ class DioHelper implements ApiHelper {
     required this.dio,
   });
 
+  /// هنا بعمله Implement لل abstract class
+
   @override
   Future<T> get<T>({
     required String endPoint,
@@ -98,10 +100,10 @@ class DioHelper implements ApiHelper {
   }
 
   Future<T> _tryAndCatchBlock<T>({
-    required Future<Response> Function() responseBuilder,
+    required Future<Response> Function() responseBuilder, // هنا هياخد فانكشن ينفذها وبناءا عليه هيرجعلي response model
   }) async {
     dio.options.baseUrl = ApiK.baseUrl;
-    Response response = await responseBuilder();
+    Response response = await responseBuilder(); // مستني الفانكشن تخلص عشان يرجعلي الريسبونس
 
     log("✅✅✅✅✅✅✅✅ Response Success ✅✅✅✅✅✅✅✅");
     log(response.data.toString());

@@ -8,6 +8,7 @@ import '../models/device.dart';
 import '../models/device_detailed_spec.dart';
 import '../models/device_quick_spec.dart';
 
+//ملف فيه داتا dummy عشان باكدج سكيليتونيزر
 List<HotDealDevice> hotDealsSkeletonData() {
   return List.generate(
     3,

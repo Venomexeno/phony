@@ -9,7 +9,7 @@ void _initCubits() {
 
   sl.registerFactory<GetTopDevicesCubit>(() => GetTopDevicesCubit(sl<HomeRepo>()));
 
-  sl.registerLazySingleton<GetBrandsCubit>(() => GetBrandsCubit(sl<HomeRepo>()));
+  sl.registerLazySingleton<GetBrandsCubit>(() => GetBrandsCubit(sl<HomeRepo>())); // هنا عملتها lazy singleton عشان ال brands مش هتتغير كتير ف مفيش داعي اعملها factory وكل مرة تتعمل instance جديد
 
   sl.registerFactory<SearchDeviceCubit>(() => SearchDeviceCubit(sl<SearchRepo>()));
 
