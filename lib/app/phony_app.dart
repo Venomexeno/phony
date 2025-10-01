@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nested/nested.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../core/di/service_locator.dart';
@@ -15,31 +16,36 @@ class PhonyApp extends StatelessWidget {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider<AppThemeCubit>(
-          create: (context) => sl<AppThemeCubit>(),
-        ),
-        BlocProvider<FavoritesCubit>(
-          create: (context) => sl<FavoritesCubit>(),
-        ),
-      ],
+      providers: _providers,
       child: BlocBuilder<AppThemeCubit, bool>(
-        builder: (context, isDark) {
-          return MaterialApp(
-            navigatorKey: navigatorKey,
-            debugShowCheckedModeBanner: false,
-            theme: isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
-            builder: _builder,
-            title: 'Phony',
-            home: MainLayoutWidget(),
-          );
-        },
+        builder: _appThemeBuilder,
       ),
     );
+  }
+
+  Widget _appThemeBuilder(context, isDark) {
+    return MaterialApp(
+      navigatorKey: navigatorKey,
+      debugShowCheckedModeBanner: false,
+      theme: isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
+      builder: _builder,
+      title: 'Phony',
+      home: MainLayoutWidget(),
+    );
+  }
+
+  List<SingleChildWidget> get _providers {
+    return [
+      BlocProvider<AppThemeCubit>(
+        create: (context) => sl<AppThemeCubit>(),
+      ),
+      BlocProvider<FavoritesCubit>(
+        create: (context) => sl<FavoritesCubit>(),
+      ),
+    ];
   }
 
   Widget _builder(context, child) {
@@ -52,19 +58,23 @@ class PhonyApp extends StatelessWidget {
           return ResponsiveScaledBox(
             width: ResponsiveValue<double>(
               context,
-              conditionalValues: [
-                Condition.between(start: 0, end: 450, value: 375),
-                Condition.between(start: 450, end: 800, value: 500),
-                Condition.between(start: 800, end: 1100, value: 600),
-                Condition.between(start: 1100, end: 1400, value: 680),
-                Condition.between(start: 1400, end: 9999, value: 900),
-              ],
+              conditionalValues: _conditionalValues,
             ).value,
             child: child!,
           );
         },
       ),
     );
+  }
+
+  List<Condition<double>> get _conditionalValues {
+    return [
+      Condition.between(start: 0, end: 450, value: 375),
+      Condition.between(start: 450, end: 800, value: 500),
+      Condition.between(start: 800, end: 1100, value: 600),
+      Condition.between(start: 1100, end: 1400, value: 680),
+      Condition.between(start: 1400, end: 9999, value: 900),
+    ];
   }
 
   List<Breakpoint> get _breakpoints => [
